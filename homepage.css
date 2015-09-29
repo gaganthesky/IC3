@@ -1,0 +1,93 @@
+div{
+	border:1px solid white;
+}
+
+body{
+	background-color: #ebf2f6;
+}
+
+p{
+	text-align: center;
+	color:#fbfbfa;
+	font-size: 20px;
+	font-family: Arial;
+} 
+
+#header{
+	font-size: 80px;
+	font-family: Arial;
+	color: #ffd27d; /* yellow */
+	position: relative;
+	margin-top: -50px;
+	margin: auto;
+}
+
+h3{
+	margin-top: 0px;
+}
+
+form{
+	text-align: center;
+}
+
+#username{
+	border: 2px solid grey;
+	border-radius: 3px;
+	background-color: #f4f2f0;
+	height:50px; 
+	width:270px; 
+	margin:auto;
+	margin-top: 0px;
+
+}
+
+#password{
+	border: 2px solid grey;
+	border-radius: 3px;
+	background-color: #f4f2f0;
+	height:50px; 
+	width:270px; 
+	margin:0 auto;
+	/* margin-top: 5px; */
+}
+
+#button{
+	background-color: #3f467c; /* navy blue */
+	padding-right: 40px;
+	padding-left: 40px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-radius: 3px;
+	
+	text-align: center;
+	font-family: Impact;
+	font-weight: bold;
+	font-size: 25px;
+	color: white;
+	height:15px; 
+	width:270px; 
+	margin: auto;
+}
+
+div{
+	margin-top: 3px;
+}
+
+#ios{
+	font-size: 20px;
+	font-family: Arial;
+	background-color: #2768a3;
+}
+
+#android{
+	font-size: 20px;
+	font-family: Arial;
+	background-color: #2768a3;
+}
+
+
+
+
+
+
+
