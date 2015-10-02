@@ -4,41 +4,52 @@
 <head>
 <meta charset="UTF-8">
 <title>post event page</title>
-<link rel="stylesheet" type="text/css" href="postevent.css">
+<link rel="stylesheet" type="text/css" href="css/postevent.css">
 </head>
 
-<body background= "/Users/AlanLi/Downloads/wallpaper/02807_cornwallparkdusk_2880x1800.jpg"/>
+<body background="pics/postevent_page.jpg">
+	
+	<div id="subtitle">
+	<h2>Post Your Events Here</h2>
+	</div>
 
-	<p id="header">Post Your Events Here</p>
-
-	<form class="input" id="event">
-		Events
+	<div id="eventFrame">
+	<form class="input" id="event" placeholder="Event's Name">
 		<input type="text" name="events"></input>
 	</form>
+	</div>
 
+	<div id="dateFrame">
 	<form class="input" id="date">
-		Date
-		<input type="date" name="date"></input>
+		<input type="date" name="date" placeholder="At what time?"></input>
 	</form>
+	</div>
 
+	<div id="organizationFrame">
 	<form class="input">
 		Organization
-		<input type="text" name="organization"></input>
+		<input type="text" name="organization" placeholder="Or"></input>
 	</form>
+	</div>
 
+	<div id="locationFrame">
 	<form class="input">
 		location
 		<input type="text" name="location"></input>
 	</form>
+	</div>
 
+	<div id="detailFrame">
 	<form class="input">
 		Detials
 		<input type="text" name="events"></input>
 	</form>
+	</div>
 
-	<div id="button">Submit</div>
-	<div id="button">Cancel</div>
-
+	<div>
+		<div id="button">Submit</div>
+		<div id="button">Cancel</div>
+	</div>
 
 </body>
 </html>

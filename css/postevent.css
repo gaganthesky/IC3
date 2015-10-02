@@ -1,0 +1,61 @@
+div{
+	border: 1px solid black;
+}
+
+#header{
+	text-align: center;
+	font-size: 50px;
+}
+
+#subtitle{
+	font-family: Arial;
+	color: black;
+}
+
+#eventFrame{
+
+}
+
+#date{
+
+}
+
+#button{
+	border-radius: 5px;
+	color: #3f467c; /* navy blue*/
+	
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bold;
+	font-color:white;
+	text-align: center;
+	
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	position: relative;
+
+}
+
+#event{
+	margin-top: 100px;
+	margin: auto;
+}
+
+#header{
+	font-color:#ffd27d;
+	/* font-color:white; */
+	font-size:80px;
+	float: left;
+	font-family: Impact;
+	position: relative;
+}
+
+
+.input{
+	width: 120px;
+	height: 20px;
+	background-color: grey;
+
+}
+
