@@ -1,0 +1,139 @@
+div{
+	margin-top: 2px;
+	border:2px solid white;
+	/* align: center; */
+}
+
+h3{
+	margin-top: 1100px;
+	text-align:center; 
+	font-family: Impact;
+	color:#ffd27d; 
+	font-size: 40px
+}
+
+body{
+	background-color: #ebf2f6;
+}
+
+p{
+	text-align: center;
+	color:#fbfbfa;
+	font-size: 20px;
+	font-family: Arial;
+} 
+
+#header{
+	font-size: 80px;
+	font-family: Arial;
+	color: #ffd27d; /* yellow */
+	position: relative;
+	margin-top: -50px;
+	margin: auto;
+}
+
+h3{
+	margin-top: 0px;
+	/* padding-top: 5px; */
+	padding-bottom: 0px;
+	height:30px;
+}
+
+form{
+	text-align: center;
+}
+
+#username{
+	border: 1px solid grey;
+	border-radius: 3px;
+	background-color: #f4f2f0;
+	height:50px; 
+	width:270px; 
+	margin:auto;
+	margin-top: 0px;
+
+}
+
+#password{
+	padding-top: 0px;
+	margin-top: 0px;
+	border: 1px solid grey;
+	border-radius: 3px;
+	background-color: #f4f2f0;
+	height:50px; 
+	width:270px; 
+	margin:0 auto;
+	/* margin-top: 5px; */
+}
+
+.button{
+	background-color: #3f467c; /* navy blue */
+	padding-right: 40px;
+	padding-left: 40px;
+	padding-bottom: 20px;
+	padding-top: 2px;
+	border-radius: 3px;
+	
+	text-align: center;
+	font-family: Impact;
+	font-weight: bold;
+	font-size: 25px;
+	color: white;
+	height:15px; 
+	width:193px; 
+	margin: auto;
+}
+
+#loginButton{
+	margin-top: 3px;
+}
+
+#signupButton{
+	margin-top: 3px;
+}
+
+#ios{
+	display: inline-block;
+	margin-top: 70px;
+	/* font-family: Arial; */
+	/* background-color: #2768a3; */
+	width: 40%;
+	text-align: center;
+	/* margin:0 auto; */
+	width:90px; 
+	height:30px;
+}
+
+#android{
+	/* position: relative; */
+	display: inline-block;
+	margin-top: 20px;
+	/* font-family: Arial; */
+	/* background-color: #2768a3; */
+	width: 40%;
+	text-align:center;
+	margin:auto;
+	width:90px; 
+	height:30px;
+}
+
+#iosANDandroid{
+	text-align: center;
+}
+
+#outFramOfButton{
+	margin-top: 10px;
+}
+
+#usernameFrame{
+
+}
+
+#passwordFram{
+	margin-top: -2px;
+}
+
+
+
+
+
