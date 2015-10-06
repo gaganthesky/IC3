@@ -5,35 +5,46 @@
 	<link rel="stylesheet" type="text/css" href="css/register_page.css"/>
 </head>
 
-<body background = "/Users/AlanLi/Downloads/wallpaper/02915_crossingthegap_2880x1800.jpg"/>
+<body background = "pics/registerpage_pic.jpg"/> <!--no need for a "/" at the beginning of the route -->
 	
-	<center><h1 id = "header">GatorEvents Starts Right Here</h1></center>
+	<div id="headerFrame"><h1 id = "header">GatorEvents Starts Right Here</h1></div>
 
-<center>
-	<form class="input">
-	<input type="text" name="Username" palceholder="Your Username"></input>
-	</form> <!-- input username-->
+<div>
+	<div class="formDiv">
+		<form class="inputDiv">
+			<input class="input" type="text" name="Username" placeholder="Username"></input>
+		</form>
+	</div>
 	
-	<form class="input">
-	<input type="password" name="Password" placeholder="Password"></input> 
-	</form><!--input password-->
+	<div class="formDiv">
+		<form class="inputDiv">
+			<input class="input" type="password" name="Password" placeholder="Password"></input> 
+		</form><!--input password-->
+	</div>
 	
-	<form class="input">
-	<input type="password" name="Confirm your password" placeholder="Confirm your password"></input> <!--confirm password-->
-	</form>
+	<div class="formDiv">
+		<form class="inputDiv">
+			<input class="input" type="password" name="Confirm your password" placeholder="Confirm your password"></input> <!--confirm password-->
+		</form>
+	</div>
 
-	<form class="input">
-	<input type="text" name="Organizations belonging" placeholder="Which organization"></input> <!--organization-->
-	</form>
+	<div class="formDiv">
+		<form class="inputDiv">
+			<input class="input" type="text" name="Organizations belonging" placeholder="Which organization"></input> <!--organization-->
+		</form>
+	</div>
 
-	<form class="input">
-	<input type="file" name="Upload Documents" placeholder="Upload document"></input> <!--for uploading file to server-->
-	</form>
-</center>
+	<div class="formDiv">
+		<form class="inputDiv" >
+			<input class="input" type="file" name="Upload Documents" placeholder="Upload document"></input> <!--for uploading file to server-->
+		</form>
+	</div>
+</div>
 	
-	<div id="up_button">Upload File</div> <!--upload button-->
-
-	<div id="re_button">Sign Up Now!</div> <!--register button-->
+	<div class="buttonDiv">
+		<div class="button" id="upload">Upload File</div> <!--upload button-->
+		<div class="button" id="signup">Sign Up Now!</div> <!--register button-->
+	</div>	
 
 </body>
 </html>
