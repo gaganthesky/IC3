@@ -5,9 +5,12 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -99,7 +102,19 @@ public class MainActivity extends Activity
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
+            getMenuInflater().inflate(R.menu.action_bar, menu);
+
+            ComponentName cn = new ComponentName(this, MainActivity.class);
+            SearchManager searchManager =(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+            try {
+                searchView.setSearchableInfo(searchManager.getSearchableInfo(cn));
+            }
+
+            catch(Exception e)
+            {
+                System.err.println(e.toString());
+            }
             restoreActionBar();
             return true;
         }
