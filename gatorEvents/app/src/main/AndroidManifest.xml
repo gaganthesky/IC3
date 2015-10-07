@@ -32,6 +32,14 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable"/>
         </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.seven.actionbar.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
