@@ -1,0 +1,45 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+	<title>register page</title>
+	<link rel="stylesheet" type="text/css" href="css/register_page.css"/>
+</head>
+
+<body background = "pics/registerpage_pic.jpg"/> <!--no need for a "/" at the beginning of the route -->
+	
+	<div id="headerFrame"><h1 id = "header">GatorEvents Starts Right Here</h1></div>
+
+<div>
+<form class="formInput" id="registration"  action = "registration.php" method = "post" />
+	
+	<div class="formDiv">
+			<input class="input" type="text" name="Username" placeholder="email"></input>
+	</div>
+	
+	<div class="formDiv">
+			<input class="input" type="password" name="Password" placeholder="Password"></input> 
+	</div>
+	
+	<div class="formDiv">
+			<input class="input" type="password" name="Confirm your password" placeholder="Confirm your password"></input> <!--confirm password-->
+	</div>
+
+	<div class="formDiv">
+			<input class="input" type="text" name="Organizations belonging" placeholder="Which organization"></input> <!--organization-->
+	</div>
+
+	<div class="formDiv">
+			<input class="input" type="file" name="Upload Documents" placeholder="Upload document"></input> <!--for uploading file to server-->
+	</div>
+
+<div class="button">
+			 <button type = "submit">Registration</button>
+		</div>
+		<br> </br>
+		<div class="button">  <a style="color:white; text-decoration:none" href="login.html">Cancel</a>  </div>
+
+	</form>
+</div>
+	
+</body>
+</html>

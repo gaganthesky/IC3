@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>post event page</title>
+<link rel="stylesheet" type="text/css" href="css/postevent.css">
+</head>
+
+<body background="pics/postevent_page.jpg">
+	
+	<div id="subtitle">
+	<h2>Post Your Events Here</h2>
+	</div>
+	
+	<form class="formInput" id="event"  action = "connection_events.php" method = "post" />
+
+	<div class="formFrame">
+		<input id="input" type="text" name="events" placeholder="Event's Name"></input>
+	</div>
+
+	<div class="formFrame">
+		<input id="input" type="date" name="date" placeholder="At What Time?"></input>
+	</div>
+
+
+	<div class="formFrame" >
+		<input id="input" type="text" name="organization" placeholder="Organization"></input>
+	</div>
+
+	<div class="formFrame">
+		<input id="input" type="text" name="location" placeholder="Location"></input>
+	</div>
+
+	<div id="detailFrame">
+		<textarea id="detailInput" type="text" name="event_description" placeholder="Events Detial"></textarea> 
+	</div>
+
+		<div class="button">
+			 <button type = "submit">Submit</button>
+		</div>
+		<div class="button">  <a style="color:white; text-decoration:none" href="login.html">Cancel</a>  </div>
+	
+</form>	
+
+
+
+</body>
+</html>

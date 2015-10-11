@@ -1,0 +1,66 @@
+div{
+	/* border:1px white solid; */
+	text-align: center;
+}
+
+#header{
+	color:#ffd27d;
+	text-align: center;
+	font-size: 95px;
+	font-family: Impact;
+	padding-top: 70px;
+	height: 130px;
+}
+
+.formDiv{
+	text-align: center;
+	margin-top: 8px;
+	height: 60px;
+}
+
+.inputDiv{
+	/* border: 1px solid grey; */
+	border-radius: 3px;
+	/* background-color: #f4f2f0; */
+	margin: auto;
+	width: 80%;
+	height: 330px;
+}
+
+.input{
+	border:1px solid grey;
+	border-radius:3px;
+	width: 35%;
+	height: 55px;
+	background-color: #f4f2f0;
+}
+
+.buttonDiv{
+	text-align: center;
+	margin-top: 5px;
+}
+
+.button{
+	position: relative;
+	margin:0 auto;
+	background-color: #3f467c;
+	border-radius:3px;
+	font-family: Impact; 
+	font-weight: bold;
+	font-size: 18px;
+	color: white;
+	width: 13%;
+	height: 30px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+
+#upload{
+	margin-top: 20px;
+}
+
+#signup{
+	margin-top:5px;
+}
+
+

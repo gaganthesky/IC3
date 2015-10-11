@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Event Detail</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+
+<style type="text/css">
+
+#img1 {
+      position: absolute;
+	left: 10px;
+	top: 28px;
+      }
+
+#p1 {
+    font-family: "Comic Sans MS", cursive;
+	font-size: 30px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #09F;
+	position: absolute;
+	left: 50px;
+	top: 0px;
+
+}
+
+#a2 {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 24px;
+	text-decoration: none;
+	color: #09F;
+	position: absolute;
+	left: 1200px;
+	top: 29px;
+	width: 137px;
+}
+
+#a3 {
+	position: absolute;
+	left: 1060px;
+	top: 32px;
+	height: 35px;
+	width: 56px;
+}
+
+#a4 {
+	position: absolute;
+	left: 1100px;
+	top: 30px;
+	font-size: 24px;
+	text-decoration: none;
+	color: #09F;
+	font-style: oblique;
+}
+
+#div2 {
+    position: absolute;
+	left: 100px;
+	top: 100px;
+}
+
+#t1 {
+font-size: 24px;
+color: #09F;
+}
+
+ul {
+	width: 900px;
+	list-style: none;
+	position: absolute;
+	top: 530px;
+	left: 406px;
+}
+
+li {
+	float: left;
+	width: 200px;
+	height: 24px;
+	line-height: 24px;
+	color:#FFF;
+	font-size: 18px;
+	font-family: "Lucida Console", Monaco, monospace;
+	
+	background-color:#09F;
+	text-align:center;
+	margin-left: 60px;
+	border-radius: 10px;	
+}
+
+li a {text-decoration: none;}
+
+li a:hover{font-style: oblique;}
+
+
+
+</style>
+
+</head>
+
+<body style="background-color: #F60;; font-family: 'Comic Sans MS', cursive;";background-position:center;>
+      <div id="div1">
+          <p id="p1">| Event Detail</p>
+          <a id="a1" href="login.html" title=”gatorEvents”> <img id="img1" src="House-Blue-Icon.png" width="40" height="40"> </a>
+		  
+         
+          <a id="a2" href="logout.html" title=”Logout”>|Log out</a>
+          
+          <a id="a3" href="profile.html" title=”Profile”><img src="6.png" width="30" height="30"></a>
+          <a id="a4" href="profile.html" title=”Profile”>Aligator</a>
+          
+          
+      </div>
+      
+      <div id="div2">
+      <textarea rows="15" cols="86" id="t1"> Event Name:
+
+ Time:
+                            
+ Location:
+                            
+ Event Detail:
+
+      </textarea>
+
+      </div>
+	  
+	  <ul>
+		  <li><a href="eventdetail.html" title="Edit Event">Edit Event</a></li>
+		  <li><a href="" title="Delete Event">Delete Event </a> </li>
+		  <li><a href="Eventhistory.html" title="Event History">Back to History </a> </li>
+      </ul>
+      
+</body>
+</html>
