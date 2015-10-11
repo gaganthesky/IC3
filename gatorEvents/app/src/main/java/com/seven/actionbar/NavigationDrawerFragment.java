@@ -4,6 +4,7 @@ package com.seven.actionbar;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -95,6 +96,7 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
+                mDrawerLayout.closeDrawer(mDrawerListView);
             }
         });
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
@@ -192,7 +194,7 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     private void selectItem(int position) {
-        mCurrentSelectedPosition = position;
+        /*mCurrentSelectedPosition = position;
         if (mDrawerListView != null) {
             mDrawerListView.setItemChecked(position, true);
         }
@@ -201,7 +203,34 @@ public class NavigationDrawerFragment extends Fragment {
         }
         if (mCallbacks != null) {
             mCallbacks.onNavigationDrawerItemSelected(position);
+        }*/
+
+        Intent intent = null;
+        switch(position)
+        {
+            case 0:
+                intent = new Intent(getActivity(), MainActivity.class);
+
+            case 1:
+                intent = new Intent(getActivity(), CategoryActivity.class);
+
+            case 2:
+                intent = new Intent(getActivity(), MainActivity.class);
+
+            case 3:
+                intent = new Intent(getActivity(), MainActivity.class);
+
+            case 4:
+                intent = new Intent(getActivity(), MainActivity.class);
+
+            case 5:
+                intent = new Intent(getActivity(), MainActivity.class);
+
+            default:
+                intent = new Intent(getActivity(), MainActivity.class);
+
         }
+        startActivity(intent);
     }
 
     @Override

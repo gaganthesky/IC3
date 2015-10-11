@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activityTitles">
+        <item>Home</item>
+        <item>Categories</item>
+        <item>My Favorites</item>
+        <item>My Events</item>
+        <item>Notifications</item>
+        <item>Calendar</item>
+    </string-array>
+</resources>
