@@ -50,7 +50,7 @@ public class DrawerActivity extends FragmentActivity
         this.getActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                //       R.drawable.ic_drawer,
+                   //    R.drawable.ic_drawer,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close)
         {
@@ -130,6 +130,7 @@ public class DrawerActivity extends FragmentActivity
         return  super.onOptionsItemSelected(item);
     }
 
+
     private class DrawerItemClickListener implements ListView.OnItemClickListener
     {
         @Override
@@ -147,28 +148,38 @@ public class DrawerActivity extends FragmentActivity
                     intent = new Intent(getApplicationContext(), CategoryActivity.class);
                     break;
                 case 2:
+                    intent = new Intent(getApplicationContext(), FavoritesActivity.class);
                     break;
                 case 3:
+                    intent = new Intent(getApplicationContext(), MyEventsActivity.class);
                     break;
                 case 4:
+                    intent = new Intent(getApplicationContext(), NotificationsActivity.class);
                     break;
                 case 5:
+                    intent = new Intent(getApplicationContext(), CalendarActivity.class);
                     break;
                 default:
                     break;
             }
-            mDrawerList.setItemChecked(position, true);
+
+
             startActivity(intent);
+            finish();
+            mDrawerList.setItemChecked(position, true);
+            mDrawerList.setSelection(position);
+            setTitle(mActivityTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
         }
 
 
     }
-    /*@Override
+    @Override
     public void setTitle(CharSequence title)
     {
         mTitle = title;
+        System.out.println(mTitle);
         getActionBar().setTitle(mTitle);
-    }*/
+    }
 
 }

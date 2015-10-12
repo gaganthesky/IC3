@@ -19,13 +19,14 @@ public class MainActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.container);
 
         LayoutInflater layoutInflater =
                 (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View activityView = layoutInflater.inflate(R.layout.activity_main, null, false);
         frameLayout.addView(activityView);
+
+
     }
 
 
@@ -34,6 +35,7 @@ public class MainActivity extends DrawerActivity {
         super.onStart();
         ActionBar actionBar = this.getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
 
@@ -73,7 +75,6 @@ public class MainActivity extends DrawerActivity {
         {
             System.err.println(e.toString());
         }
-        restoreActionBar();
         return true;
     }
 

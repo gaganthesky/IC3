@@ -2,6 +2,7 @@ package com.seven.actionbar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -46,6 +47,9 @@ public class CategoryActivity extends DrawerActivity {
         if(mPager.getCurrentItem() == 0)
         {
             //If on first page, allow system to handle back action
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
             super.onBackPressed();
         }
         else
