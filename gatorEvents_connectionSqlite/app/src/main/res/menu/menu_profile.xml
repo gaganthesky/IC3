@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".ProfileActivity">
+
+    <item android:id="@+id/save" android:title="@string/action_save"
+        android:showAsAction="always" />
+
+    <item android:id="@+id/toAct" android:title="@string/action_toAct"
+        android:showAsAction="always"/>
+
+    <item android:id="@+id/toSync" android:title="@string/action_toFrag"
+        android:showAsAction="always"/>
+
+</menu>
