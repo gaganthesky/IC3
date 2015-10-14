@@ -3,7 +3,8 @@ div{
 }
 
 h2{
-	font-family: Impact;
+	font-family: Trebuchet MS; 
+	font-weight: bold;
 	color:#ffd27d;
 	font-size: 80px;
 	text-align: center;
@@ -57,7 +58,7 @@ h2{
 	background: #3f467c;
 	width: 15%;
 	height: 25px;
-	font-family: Impact;
+	font-family: Trebuchet MS;
 	font-size: 20px;
 	font-weight: bold;
 	/* text-align: center; */

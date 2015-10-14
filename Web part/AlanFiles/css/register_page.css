@@ -7,7 +7,7 @@ div{
 	color:#ffd27d;
 	text-align: center;
 	font-size: 95px;
-	font-family: Impact;
+	font-family: Trebuchet MS;
 	padding-top: 70px;
 	height: 130px;
 }
@@ -45,11 +45,11 @@ div{
 	margin:0 auto;
 	background-color: #3f467c;
 	border-radius:3px;
-	font-family: Impact; 
+	font-family: Trebuchet MS; 
 	font-weight: bold;
 	font-size: 18px;
 	color: white;
-	width: 13%;
+	width: 20%;
 	height: 30px;
 	padding-top: 10px;
 	padding-bottom: 0px;

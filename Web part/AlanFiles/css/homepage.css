@@ -1,13 +1,13 @@
 div{
 	margin-top: 2px;
-	/* border:2px solid white; */
-	/* align: center; */
+	 /* border:2px solid white; */	
+	 /* align: center; */
 }
 
 h3{
 	margin-top: 1100px;
 	text-align:center; 
-	font-family: Impact;
+	font-family: Helvetica;
 	color:#ffd27d; 
 	font-size: 40px
 }
@@ -50,7 +50,7 @@ form{
 	height:50px; 
 	width:270px; 
 	margin:auto;
-	margin-top: 0px;
+	margin-top: 25px;
 
 }
 
@@ -75,7 +75,7 @@ form{
 	border-radius: 3px;
 	
 	text-align: center;
-	font-family: Impact;
+	font-family: Trebuchet MS;
 	font-weight: bold;
 	font-size: 25px;
 	color: white;
@@ -85,7 +85,7 @@ form{
 }
 
 #loginButton{
-	margin-top: 3px;
+	margin-top: 30px;
 }
 
 #signupButton{
@@ -133,6 +133,23 @@ form{
 	margin-top: -2px;
 }
 
+#tableDiv{
+	border:1px solid white;
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.table{
+	text-align: center;
+	margin: auto;
+}
+
+.colume1{
+	color: grey;
+	font-family: arial;
+}
 
 
 
