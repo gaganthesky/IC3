@@ -1,36 +1,50 @@
 package com.seven.actionbar;
 
 /**
- * Created by vineet on 10/11/15.
+ * Created by vineet on 10/14/15.
  */
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.Button;
 import android.widget.SearchView;
 
-public class FavoritesActivity extends DrawerActivity {
+public class FootballActivity extends Activity {
+
+    private Button button;
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.container);
+        setContentView(R.layout.activity_football);
 
-        LayoutInflater layoutInflater =
-                (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View activityView = layoutInflater.inflate(R.layout.activity_favorites, null, false);
-        frameLayout.addView(activityView);
+        manager = getFragmentManager();
+
+        button = (Button)findViewById(R.id.btn);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                transaction = manager.beginTransaction();
+                FootballEventFragment footballEventFragment = new FootballEventFragment();
+                transaction.add(R.id.center, footballEventFragment, "center");
+                //(int containerViewId, Fragment fragment, String tag)
+                transaction.commit();
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.action_bar, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
@@ -46,28 +60,14 @@ public class FavoritesActivity extends DrawerActivity {
     }
 
     @Override
-    public void onBackPressed() {
-
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-            super.onBackPressed();
-
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }
+

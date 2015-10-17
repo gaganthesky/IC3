@@ -168,7 +168,7 @@ public class DrawerActivity extends FragmentActivity
             finish();
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
-            setTitle(mActivityTitles[position]);
+//            setTitle(mActivityTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
         }
 
