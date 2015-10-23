@@ -18,6 +18,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 
+import com.viewpagerindicator.LinePageIndicator;
+import com.viewpagerindicator.TitlePageIndicator;
+import com.viewpagerindicator.UnderlinePageIndicator;
+
 public class CategoryActivity extends DrawerActivity {
 
     //The number of pages to display
@@ -42,6 +46,9 @@ public class CategoryActivity extends DrawerActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new CategoryPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+        LinePageIndicator lineIndicator = (LinePageIndicator) findViewById(R.id.indicator);
+        lineIndicator.setViewPager(mPager);
     }
 
     @Override

@@ -27,6 +27,7 @@ public class MainActivity extends DrawerActivity {
         frameLayout.addView(activityView);
 
 
+
     }
 
 
@@ -35,6 +36,8 @@ public class MainActivity extends DrawerActivity {
         super.onStart();
         ActionBar actionBar = this.getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(getResources().getString(R.string.home_name));
+
 
     }
 

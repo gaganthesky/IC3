@@ -3,5 +3,20 @@
     <style name="AppTheme" parent="android:Theme.Material.Light">
         <item name="android:colorPrimary">#FFB74D</item>
         <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
+        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
     </style>
+
+    <style name="CustomLinePageIndicator">
+        <item name="strokeWidth">4dp</item>
+        <item name="lineWidth">30dp</item>
+        <item name="unselectedColor">#FFAAAAAA</item>
+        <item name="selectedColor">#FF4221A6</item>
+    </style>
+
+    <style name="AppThemeNoTitle" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+
 </resources>

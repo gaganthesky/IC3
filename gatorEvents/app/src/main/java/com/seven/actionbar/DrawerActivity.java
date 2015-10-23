@@ -41,8 +41,12 @@ public class DrawerActivity extends FragmentActivity
         mActivityTitles = getResources().getStringArray(R.array.activityTitles);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item,
+        mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        mDrawerList.setItemChecked(0, true);
+        mDrawerList.setAdapter(new ArrayAdapter<String>(
+                this,
+                R.layout.drawer_list_item,
+                R.id.drawerText,
                 mActivityTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -135,7 +139,7 @@ public class DrawerActivity extends FragmentActivity
     {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view,
-                                int position, long id)
+                                final int position, long id)
         {
 
             Intent intent = null;
@@ -163,13 +167,18 @@ public class DrawerActivity extends FragmentActivity
                     break;
             }
 
-
+            mDrawerLayout.closeDrawer(mDrawerList);
+            mDrawerLayout.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mDrawerList.setItemChecked(position, true);
+                }
+            }, 2000);
+//            mDrawerList.setSelection(position);
             startActivity(intent);
             finish();
-            mDrawerList.setItemChecked(position, true);
-            mDrawerList.setSelection(position);
 //            setTitle(mActivityTitles[position]);
-            mDrawerLayout.closeDrawer(mDrawerList);
+
         }
 
 
