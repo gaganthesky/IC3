@@ -117,6 +117,9 @@ public class NewUserActivity extends Activity {
             catch(NullPointerException e){
                 e.printStackTrace();
             }
+            catch(RuntimeException e){
+                e.printStackTrace();
+            }
 
             return null;
         }
