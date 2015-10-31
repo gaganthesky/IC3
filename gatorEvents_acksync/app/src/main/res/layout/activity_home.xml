@@ -3,19 +3,31 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#CCDDFF"
     tools:context=".HomeActivity">
 
     <Button android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id ="@+id/btn_main"
-        android:text="Read Data"
+        android:id ="@+id/btn_login"
+        android:text="Login"
         />
 
-    <ListView
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id ="@+id/btn_main"
+        android:text="Register"
+        />
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id ="@+id/btn_evt"
+        android:text="Show events"
+        />
+
+    <!--<ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_main"></ListView>
-
+        android:id="@+id/list_main"></ListView>-->
 </LinearLayout>

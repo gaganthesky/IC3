@@ -14,6 +14,8 @@ import java.util.List;
 public class HomeActivity extends Activity {
 
     Button btnMain;
+    Button btnEvents;
+    Button btnLogin;
     ListView btnList;
 
 
@@ -23,12 +25,31 @@ public class HomeActivity extends Activity {
         setContentView(R.layout.activity_home);
 
         btnMain = (Button)findViewById(R.id.btn_main);
-        btnList = (ListView)findViewById(R.id.list_main);
+        //btnList = (ListView)findViewById(R.id.list_main);
+
+        btnEvents = (Button)findViewById(R.id.btn_evt);
+        btnLogin = (Button)findViewById(R.id.btn_login);
 
         btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), NewUserActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), EventsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(i);
             }
         });
