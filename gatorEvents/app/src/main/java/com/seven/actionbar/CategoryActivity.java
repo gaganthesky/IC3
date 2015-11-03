@@ -128,4 +128,12 @@ public class CategoryActivity extends DrawerActivity {
         }
 
     }
+
+
+    public void clickedFootball(View view)
+    {
+        Intent intent = new Intent(this, FootballActivity.class);
+        startActivity(intent);
+
+    }
 }

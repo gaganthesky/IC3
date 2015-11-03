@@ -1,6 +1,7 @@
 package com.seven.actionbar;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -70,6 +71,8 @@ public class SportFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sport, container, false);
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
 /*

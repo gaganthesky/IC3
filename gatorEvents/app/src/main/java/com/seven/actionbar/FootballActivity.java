@@ -28,7 +28,8 @@ public class FootballActivity extends Activity {
 
         manager = getFragmentManager();
 
-        button = (Button)findViewById(R.id.btn);
+        //10/29  9:50PM
+        /*button = (Button)findViewById(R.id.btn);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +40,7 @@ public class FootballActivity extends Activity {
                 //(int containerViewId, Fragment fragment, String tag)
                 transaction.commit();
             }
-        });
+        });*/
 
     }
 

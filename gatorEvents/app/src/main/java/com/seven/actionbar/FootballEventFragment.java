@@ -46,8 +46,9 @@ public class FootballEventFragment extends ListFragment {
         Bundle bundle = new Bundle();
         bundle.putString("id", str);
         detailFragment.setArguments(bundle);
-        transaction.replace(R.id.right, detailFragment, "detail");
-        transaction.commit();
+        //10/29 9:50PM
+       // transaction.replace(R.id.right, detailFragment, "detail");
+       // transaction.commit();
         Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
     }
 
