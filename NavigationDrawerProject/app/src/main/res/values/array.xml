@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activityTitles">
+        <item>MainActivity</item>
+        <item>FirstActivity</item>
+        <item>SecondActivity</item>
+    </string-array>
+</resources>

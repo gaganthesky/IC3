@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SqliteTest</string>
+    <string name="action_save">Save</string>
+    <string name="action_toAct">To Home</string>
+    <string name="action_toFrag">Fresh Events</string>
+
+    <string name="label_user">USER:</string>
+    <string name="label_pwd">PWD :</string>
+    <string name="title_activity_data">dataActivity</string>
+
+</resources>
