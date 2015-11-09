@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -116,17 +117,25 @@ public class LoginActivity extends Activity {
                 int success = json.getInt(TAG_SUCCESS);
 
                 if (success == 1) {
-                    // successfully created user
+                    // successfully login
+                    String uid = json.getString("U_id");
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    HashMap<String, String> userMap = new HashMap<String, String>();
+                    userMap.put("U_id",uid);
+                    userMap.put("U_name",name);
+                    i.putExtra("userMap",userMap);//give U_id to whole application
                     startActivity(i);
 
                     // closing this screen
                     finish();
                 } else {
-                    Looper.prepare();//user Handler to make the Thread running on the Main Thread
+                    /*Looper.prepare();//user Handler to make the Thread running on the Main Thread
                     Toast.makeText(getApplicationContext(), "No such a user!", Toast.LENGTH_SHORT).show();
                     Looper.loop();
-                    Looper.myLooper().quit();
+                    Looper.myLooper().quit();*/
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(i);
+                    finish();
                     //inputName.setText("");
                     // Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                     // startActivity(i);

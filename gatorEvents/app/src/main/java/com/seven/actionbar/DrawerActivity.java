@@ -18,8 +18,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.HashMap;
+
 public class DrawerActivity extends FragmentActivity
 {
+    HashMap<String, String> myMap;
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -69,6 +72,10 @@ public class DrawerActivity extends FragmentActivity
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        Intent intent = getIntent();
+        myMap = (HashMap)intent.getSerializableExtra("userMap");
+
 
     }
 
@@ -158,7 +165,9 @@ public class DrawerActivity extends FragmentActivity
                     intent = new Intent(getApplicationContext(), MyEventsActivity.class);
                     break;
                 case 4:
+                   // intent = new Intent(getApplicationContext(), NotificationsActivity.class);
                     intent = new Intent(getApplicationContext(), NotificationsActivity.class);
+                    intent.putExtra("userMap", myMap);
                     break;
                 case 5:
                     intent = new Intent(getApplicationContext(), CalendarActivity.class);

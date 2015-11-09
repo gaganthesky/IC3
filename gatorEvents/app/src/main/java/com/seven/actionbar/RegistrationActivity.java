@@ -24,6 +24,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays.*;
+import java.lang.*;
 
 public class RegistrationActivity extends Activity {
 
@@ -74,7 +76,40 @@ public class RegistrationActivity extends Activity {
 //        startActivity(intent);
 
         // creating new user in background thread
-        new CreateNewUser().execute();
+        String mEmail = emailEditText.getText().toString();
+        int p = 0;
+        char s[] = mEmail.toCharArray();
+        boolean isEmail = false;
+        while(p < mEmail.length()){
+            if(s[p] == '@')
+                isEmail = true;
+            p++;
+        }
+
+        if(isEmail == false){
+            Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
+            startActivity(i);
+            finish();
+            return;
+        }
+
+
+        String[] getCom = mEmail.split("\\@",-1);
+
+        emailEditText.setText(getCom[1].toString());
+
+            if(getCom[1].toString().equals("ufl.com")){
+
+                new CreateNewUser().execute();
+
+            }else{
+                Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
+                startActivity(i);
+                finish();
+                return;
+            }
+
+
     }
 
     public void login(View view)
@@ -82,6 +117,7 @@ public class RegistrationActivity extends Activity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+        return;
     }
 
     /**
@@ -108,6 +144,7 @@ public class RegistrationActivity extends Activity {
         protected String doInBackground(String... args) {
             String name = nameEditText.getText().toString();
             String email = emailEditText.getText().toString();
+
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();

@@ -33,6 +33,8 @@ import java.util.List;
 
 public class MainActivity extends DrawerActivity {
 
+    String mUid; // THE MOST IMPORTANT!  user id
+
     // Progress Dialog
     private ProgressDialog pDialog;
 
@@ -40,6 +42,7 @@ public class MainActivity extends DrawerActivity {
     JSONParser jParser = new JSONParser();
 
     ArrayList<HashMap<String, String>> eventsList;
+    HashMap<String, String> myMap;//Uid & Eid
 
     // url to get all events list
     private static String url_all_events = "http://www.ufgatorevents.com/android_connect/get_events.php";
@@ -66,6 +69,25 @@ public class MainActivity extends DrawerActivity {
         View activityView = layoutInflater.inflate(R.layout.activity_main, null, false);
         frameLayout.addView(activityView);
 
+        Intent intent = getIntent();
+        myMap = (HashMap)intent.getSerializableExtra("userMap");
+        Intent pushToDrawer = new Intent(getApplicationContext(), DrawerActivity.class);
+        pushToDrawer.putExtra("userMap",myMap);
+
+
+        /*undle mBundle = getEid.getExtras();
+
+        myMap.put("U_name",mBundle.get("U_name").toString());
+        myMap.put("U_id",mBundle.get("U_id").toString());
+
+        Intent pushToDrawer = new Intent(getApplicationContext(), DrawerActivity.class);
+        pushToDrawer.putExtra("Umap",myMap);
+
+        if(mBundle!=null){
+            mUid = (String)mBundle.get("U_id");
+            //txtEid.setText(s);
+        }*/
+
         // Hashmap for ListView
         eventsList = new ArrayList<HashMap<String, String>>();
 
@@ -86,11 +108,14 @@ public class MainActivity extends DrawerActivity {
                 String eid = ((TextView) view.findViewById(R.id.eid)).getText()
                         .toString();
 
+
+               // myMap.put("E_id",eid);
+               // myMap.put("U_id",mUid);
                 // Starting new intent
                 Intent in = new Intent(getApplicationContext(),
-                        CategoryActivity.class);//EventsDetail
+                        NotificationsActivity.class);//EventsDetail
                 // sending eid to next activity
-                in.putExtra(TAG_EID, eid);
+                in.putExtra("e_uMap", myMap);
 
                 // starting new activity and expecting some response back
                 startActivityForResult(in, 100);

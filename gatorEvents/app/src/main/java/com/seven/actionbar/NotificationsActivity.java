@@ -14,8 +14,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
 
 public class NotificationsActivity extends DrawerActivity {
+    HashMap<String, String> myMap;
+    String uid;
+    TextView txtUID;
+    TextView txtUName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,15 @@ public class NotificationsActivity extends DrawerActivity {
                 (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View activityView = layoutInflater.inflate(R.layout.activity_notifications, null, false);
         frameLayout.addView(activityView);
+
+        txtUID = (TextView)findViewById(R.id.txt_uid);
+        txtUName = (TextView)findViewById(R.id.txt_name);
+        Intent intent = getIntent();
+        myMap = (HashMap)intent.getSerializableExtra("userMap");
+
+        txtUID.setText(myMap.get("U_id"));
+        txtUName.setText("Hello, " + myMap.get("U_name"));
+
     }
 
     @Override
