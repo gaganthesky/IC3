@@ -35,6 +35,8 @@ public class MainActivity extends DrawerActivity {
 
     String mUid; // THE MOST IMPORTANT!  user id
 
+    public MyApp myApp;
+
     // Progress Dialog
     private ProgressDialog pDialog;
 
@@ -58,6 +60,8 @@ public class MainActivity extends DrawerActivity {
     JSONArray events = null;
 
     ListView lv;
+    String _name;
+    String _id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +73,12 @@ public class MainActivity extends DrawerActivity {
         View activityView = layoutInflater.inflate(R.layout.activity_main, null, false);
         frameLayout.addView(activityView);
 
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         myMap = (HashMap)intent.getSerializableExtra("userMap");
+        _name = myMap.get("U_name");
+        _id = myMap.get("U_id").toString();
         Intent pushToDrawer = new Intent(getApplicationContext(), DrawerActivity.class);
-        pushToDrawer.putExtra("userMap",myMap);
+        pushToDrawer.putExtra("userMap", myMap);*/
 
 
         /*undle mBundle = getEid.getExtras();
@@ -107,15 +113,22 @@ public class MainActivity extends DrawerActivity {
                 // getting values from selected ListItem
                 String eid = ((TextView) view.findViewById(R.id.eid)).getText()
                         .toString();
+                myApp = (MyApp)getApplication();
+                myApp.e_uMap.put("U_id",myApp.uMap.get("U_id"));
+                myApp.e_uMap.put("U_name",myApp.uMap.get("U_name"));
+                myApp.e_uMap.put("E_id",eid);
 
-
+               // HashMap<String, String> eventMap = new HashMap<String, String>();
+               // eventMap.put("U_id",_id);
+               // eventMap.put("U_name",_name);
+               // eventMap.put("E_id",eid);
                // myMap.put("E_id",eid);
                // myMap.put("U_id",mUid);
                 // Starting new intent
                 Intent in = new Intent(getApplicationContext(),
-                        NotificationsActivity.class);//EventsDetail
+                        EventsDetailActivity.class);//EventsDetail
                 // sending eid to next activity
-                in.putExtra("e_uMap", myMap);
+                //in.putExtra("e_uMap", eventMap);
 
                 // starting new activity and expecting some response back
                 startActivityForResult(in, 100);

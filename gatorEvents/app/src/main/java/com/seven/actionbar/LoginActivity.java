@@ -35,6 +35,7 @@ public class LoginActivity extends Activity {
     Button mLogin;
     EditText mName;
 
+    public MyApp myApp;
     private ProgressDialog pDialog;
 
     JSONParser jsonParser = new JSONParser();
@@ -120,10 +121,13 @@ public class LoginActivity extends Activity {
                     // successfully login
                     String uid = json.getString("U_id");
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    HashMap<String, String> userMap = new HashMap<String, String>();
-                    userMap.put("U_id",uid);
-                    userMap.put("U_name",name);
-                    i.putExtra("userMap",userMap);//give U_id to whole application
+                    //HashMap<String, String> userMap = new HashMap<String, String>();
+                    //userMap.put("U_id",uid);
+                    //userMap.put("U_name",name);
+                    //i.putExtra("userMap",userMap);//give U_id to whole application
+                    myApp = (MyApp)getApplication();
+                    myApp.uMap.put("U_id",uid);
+                    myApp.uMap.put("U_name",name);
                     startActivity(i);
 
                     // closing this screen
