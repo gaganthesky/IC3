@@ -88,7 +88,7 @@ public class LoginActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("Loginning...");
+            pDialog.setMessage("Logging in...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
