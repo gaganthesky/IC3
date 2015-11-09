@@ -5,68 +5,201 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#4221A6">
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--android:background="#4221A6">-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:text="Football"/>
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:textColor="#FFFFFF"-->
+    <!--android:textSize="24sp"-->
+    <!--android:text="Football"/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:background="@drawable/border"
                 android:orientation="horizontal">
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/my_events_imageID"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_drawer"/>
+                    android:gravity="center">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#666"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:button="@android:drawable/btn_star" />
+                </LinearLayout>
+
+                <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="#666"/>-->
 
                 <TextView
                     android:id="@+id/uflvsolemiss"
-                    android:layout_height="match_parent"
                     android:layout_width="0dp"
-                    android:layout_weight="4"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
-                    android:textColor="#222"
-                    android:text="UFL vs OLE MISS"/>
+                    android:layout_weight="4"
+                    android:onClick="toggleContents"
+                    android:tag="uflvsolemiss"
+                    android:text="UFL vs OLE MISS"
+                    android:textColor="#4221A6" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/uflvsolemissExpandable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFF"
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date: " />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Time: " />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Venue: " />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description: " />
+
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:orientation="horizontal">-->
+            <!-- -->
+            <!--<ImageView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/ic_drawer"/>-->
+            <!-- -->
+            <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="#666"/>-->
+            <!-- -->
+            <!--<TextView-->
+                <!--android:id="@+id/random2"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="4"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:textColor="#222"-->
+                <!--android:onClick="toggleContents"-->
+                <!--android:tag="uflvstenessee"-->
+                <!--android:text="Random"/>-->
+            <!-- -->
+                        <!--</LinearLayout>-->
+            <!-- -->
+                        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:orientation="horizontal">-->
+            <!-- -->
+            <!--<ImageView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/ic_drawer"/>-->
+            <!-- -->
+            <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="#666"/>-->
+            <!-- -->
+            <!--<TextView-->
+                <!--android:id="@+id/random3"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="4"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:textColor="#222"-->
+                <!--android:onClick="toggleContents"-->
+                <!--android:tag="uflvsfsu"-->
+                <!--android:text="Random"/>-->
+            <!-- -->
+                        <!--</LinearLayout>-->
+                        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:orientation="horizontal">-->
+            <!-- -->
+            <!--<ImageView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/ic_drawer"/>-->
+            <!-- -->
+            <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="#666"/>-->
+            <!-- -->
+            <!--<TextView-->
+                <!--android:id="@+id/random4"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="4"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:textColor="#222"-->
+                <!--android:onClick="toggleContents"-->
+                <!--android:tag="uflvsgeorgia"-->
+                <!--android:text="Random"/>-->
+            <!-- -->
+            <!--</LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
-
 
 
     <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

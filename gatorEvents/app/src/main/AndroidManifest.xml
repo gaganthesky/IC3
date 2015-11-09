@@ -22,13 +22,28 @@
         android:name="MyApp">
         <activity
             android:name=".RegistrationActivity"
+<<<<<<< HEAD
             android:theme="@style/AppThemeNoTitle" >
+=======
+            android:theme="@style/AppThemeNoTitle"
+            android:screenOrientation="portrait">
+
+
+
+>>>>>>> origin/Android
         </activity>
         <activity
             android:name=".LoginActivity"
+<<<<<<< HEAD
             android:theme="@style/AppThemeNoTitle" >
             <intent-filter>
 -->
+=======
+            android:theme="@style/AppThemeNoTitle"
+            android:screenOrientation="portrait">
+
+            <intent-filter>-->
+>>>>>>> origin/Android
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -36,7 +51,13 @@
         </activity>
         <activity
             android:name=".MainActivity"
+<<<<<<< HEAD
             android:label="@string/app_name" >
+=======
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -49,7 +70,8 @@
         </activity>
         <activity
             android:name=".SearchResultsActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -61,7 +83,13 @@
         <activity
             android:name=".CategoryActivity"
             android:label="Categories"
+<<<<<<< HEAD
             android:parentActivityName=".MainActivity" >
+=======
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -77,7 +105,13 @@ android:name="android.app.searchable"
         <activity
             android:name=".FavoritesActivity"
             android:label="Favorites"
+<<<<<<< HEAD
             android:parentActivityName=".MainActivity" >
+=======
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -92,7 +126,13 @@ android:name="android.app.searchable"
         <activity
             android:name=".MyEventsActivity"
             android:label="My Events"
+<<<<<<< HEAD
             android:parentActivityName=".MainActivity" >
+=======
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -107,7 +147,13 @@ android:name="android.app.searchable"
         <activity
             android:name=".NotificationsActivity"
             android:label="Notifications"
+<<<<<<< HEAD
             android:parentActivityName=".MainActivity" >
+=======
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -122,7 +168,13 @@ android:name="android.app.searchable"
         <activity
             android:name=".CalendarActivity"
             android:label="Calendar"
+<<<<<<< HEAD
             android:parentActivityName=".MainActivity" >
+=======
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -136,7 +188,13 @@ android:name="android.app.searchable"
         </activity>
         <activity
             android:name=".FootballActivity"
+<<<<<<< HEAD
             android:parentActivityName=".CategoryActivity" >
+=======
+            android:parentActivityName=".CategoryActivity"
+            android:screenOrientation="portrait">
+
+>>>>>>> origin/Android
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>

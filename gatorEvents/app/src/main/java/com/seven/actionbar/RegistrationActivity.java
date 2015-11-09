@@ -98,9 +98,10 @@ public class RegistrationActivity extends Activity {
 
         emailEditText.setText(getCom[1].toString());
 
-            if(getCom[1].toString().equals("ufl.com")){
+            if(getCom[1].toString().equals("ufl.edu")){
 
-                new CreateNewUser().execute();
+                new CreateNewUser().execute(nameEditText.getText().toString(),
+                        emailEditText.getText().toString());
 
             }else{
                 Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
@@ -142,8 +143,8 @@ public class RegistrationActivity extends Activity {
          * Creating user
          * */
         protected String doInBackground(String... args) {
-            String name = nameEditText.getText().toString();
-            String email = emailEditText.getText().toString();
+            String name = args[0];
+            String email = args[1];
 
 
             // Building Parameters
