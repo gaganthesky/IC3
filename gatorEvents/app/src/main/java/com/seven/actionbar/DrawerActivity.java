@@ -3,6 +3,7 @@ package com.seven.actionbar;
 /**
  * Created by vineet on 10/11/15.
  */
+import android.app.Application;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.FragmentActivity;
@@ -148,12 +149,15 @@ public class DrawerActivity extends FragmentActivity
         public void onItemClick(AdapterView<?> adapterView, View view,
                                 final int position, long id)
         {
+            //Intent intentv = getIntent();
+            //myMap = (HashMap)intentv.getSerializableExtra("userMap");
 
             Intent intent = null;
             switch(position)
             {
                 case 0:
                     intent = new Intent(getApplicationContext(), MainActivity.class);
+
                     break;
                 case 1:
                     intent = new Intent(getApplicationContext(), CategoryActivity.class);
@@ -188,7 +192,7 @@ public class DrawerActivity extends FragmentActivity
             }, 2000);
 //            mDrawerList.setSelection(position);
             startActivity(intent);
-            finish();
+           // finish();
 //            setTitle(mActivityTitles[position]);
 
         }

@@ -26,6 +26,8 @@ public class NotificationsActivity extends DrawerActivity {
     TextView txtUID;
     TextView txtUName;
 
+    public MyApp myApp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +40,20 @@ public class NotificationsActivity extends DrawerActivity {
 
         txtUID = (TextView)findViewById(R.id.txt_uid);
         txtUName = (TextView)findViewById(R.id.txt_name);
-        Intent intent = getIntent();
-        myMap = (HashMap)intent.getSerializableExtra("userMap");
+        //Intent intent = getIntent();
+        //myMap = (HashMap)intent.getSerializableExtra("userMap");
 
-        txtUID.setText(myMap.get("U_id"));
-        txtUName.setText("Hello, " + myMap.get("U_name"));
+        /*try {//IMPORTANT PROBLEM!
+            txtUID.setText(myMap.get("U_id"));
+            txtUName.setText("Hello, " + myMap.get("U_name"));
+        }
+        catch(NullPointerException e){
+            e.printStackTrace();
+        }*/
 
+        myApp = (MyApp)getApplication();
+        txtUID.setText(myApp.uMap.get("U_id"));
+        txtUName.setText(myApp.uMap.get("U_name"));
     }
 
     @Override
