@@ -1,11 +1,9 @@
 package com.seven.actionbar;
 
-/**
- * Created by vineet on 10/11/15.
- */
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,17 +13,28 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 
-public class CalendarActivity extends DrawerActivity {
+public class ProfileActivity extends DrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_profile);
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.container);
 
         LayoutInflater layoutInflater =
                 (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View activityView = layoutInflater.inflate(R.layout.activity_calendar, null, false);
+        View activityView = layoutInflater.inflate(R.layout.activity_profile, null, false);
         frameLayout.addView(activityView);
+    }
+
+    public void logout(View v)
+    {
+        SharedPreferences sharedpreferences = getSharedPreferences(
+                LoginActivity.myPreferences,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.clear();
+        editor.commit();
     }
 
     @Override
@@ -68,5 +77,4 @@ public class CalendarActivity extends DrawerActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

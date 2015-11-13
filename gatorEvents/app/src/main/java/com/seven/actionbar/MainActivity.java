@@ -53,6 +53,10 @@ public class MainActivity extends DrawerActivity {
     private static final String TAG_EID = "E_id";
     private static final String TAG_NAME = "E_name";
     private static final String TAG_DES = "Description";
+    private static final String TAG_TIME = "Time";
+    private static final String TAG_DATE = "Date";
+    private static final String TAG_VENUE = "Venue";
+
 
     // events JSONArray
     JSONArray events = null;
@@ -75,19 +79,6 @@ public class MainActivity extends DrawerActivity {
         pushToDrawer.putExtra("userMap",myMap);
 
 
-        /*undle mBundle = getEid.getExtras();
-
-        myMap.put("U_name",mBundle.get("U_name").toString());
-        myMap.put("U_id",mBundle.get("U_id").toString());
-
-        Intent pushToDrawer = new Intent(getApplicationContext(), DrawerActivity.class);
-        pushToDrawer.putExtra("Umap",myMap);
-
-        if(mBundle!=null){
-            mUid = (String)mBundle.get("U_id");
-            //txtEid.setText(s);
-        }*/
-
         // Hashmap for ListView
         eventsList = new ArrayList<HashMap<String, String>>();
 
@@ -104,21 +95,21 @@ public class MainActivity extends DrawerActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                // getting values from selected ListItem
-                String eid = ((TextView) view.findViewById(R.id.eid)).getText()
-                        .toString();
 
 
-               // myMap.put("E_id",eid);
-               // myMap.put("U_id",mUid);
-                // Starting new intent
-                Intent in = new Intent(getApplicationContext(),
-                        NotificationsActivity.class);//EventsDetail
-                // sending eid to next activity
-                in.putExtra("e_uMap", myMap);
-
-                // starting new activity and expecting some response back
-                startActivityForResult(in, 100);
+//                // getting values from selected ListItem
+//                String eid = ((TextView) view.findViewById(R.id.eid)).getText()
+//                        .toString();
+//
+//
+//                // Starting new intent
+//                Intent in = new Intent(getApplicationContext(),
+//                        NotificationsActivity.class);//EventsDetail
+//                // sending eid to next activity
+//                in.putExtra("e_uMap", myMap);
+//
+//                // starting new activity and expecting some response back
+//                startActivityForResult(in, 100);
             }
         });
 
@@ -159,26 +150,7 @@ public class MainActivity extends DrawerActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        /*if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.action_bar, menu);
 
-            SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-            try {
-                searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-            }
-
-            catch (Exception e)
-            {
-                System.err.println(e.toString());
-            }
-            restoreActionBar();
-            return true;
-        }
-        return super.onCreateOptionsMenu(menu);*/
         getMenuInflater().inflate(R.menu.action_bar, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -247,6 +219,10 @@ public class MainActivity extends DrawerActivity {
                         String id = c.getString(TAG_EID);
                         String name = c.getString(TAG_NAME);
                         String decrp = c.getString(TAG_DES);
+                        String date = c.getString(TAG_DATE);
+                        String time = c.getString(TAG_TIME);
+                        String venue = c.getString(TAG_VENUE);
+
 
                         // creating new HashMap
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -255,6 +231,9 @@ public class MainActivity extends DrawerActivity {
                         map.put(TAG_EID, id);
                         map.put(TAG_NAME, name);
                         map.put(TAG_DES, decrp);
+                        map.put(TAG_DATE, date);
+                        map.put(TAG_TIME, time);
+                        map.put(TAG_VENUE, venue);
 
                         // adding HashList to ArrayList
                         eventsList.add(map);

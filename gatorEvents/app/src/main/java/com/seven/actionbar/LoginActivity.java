@@ -40,6 +40,8 @@ public class LoginActivity extends Activity {
     JSONParser jsonParser = new JSONParser();
 
     SharedPreferences sharedPreferences;
+    public static final String myPreferences = "myPrefs";
+    public static final String nameKey = "nameKey";
 
     //url to create new user
     private static String url_login = "http://www.ufgatorevents.com/android_connect/login_user.php";
@@ -63,7 +65,7 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // creating new user in background thread
-                new GatorLogin().execute();
+                new GatorLogin().execute(mName.getText().toString());
             }
         });
 
@@ -98,7 +100,7 @@ public class LoginActivity extends Activity {
          * Creating user
          * */
         protected String doInBackground(String... args) {
-            String name = mName.getText().toString();
+            String name = args[0];
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -113,22 +115,34 @@ public class LoginActivity extends Activity {
 //             Log.d("Create Response", json.toString());
 
             // check for success tag
-            try {
+            try
+            {
                 int success = json.getInt(TAG_SUCCESS);
 
                 if (success == 1) {
                     // successfully login
                     String uid = json.getString("U_id");
+
+
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     HashMap<String, String> userMap = new HashMap<String, String>();
                     userMap.put("U_id",uid);
                     userMap.put("U_name",name);
                     i.putExtra("userMap",userMap);//give U_id to whole application
+
+                    //creating Session
+                    sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(nameKey, name);
+                    editor.commit();
+
                     startActivity(i);
 
                     // closing this screen
                     finish();
-                } else {
+                }
+                else {
                     /*Looper.prepare();//user Handler to make the Thread running on the Main Thread
                     Toast.makeText(getApplicationContext(), "No such a user!", Toast.LENGTH_SHORT).show();
                     Looper.loop();

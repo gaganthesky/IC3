@@ -172,6 +172,9 @@ public class DrawerActivity extends FragmentActivity
                 case 5:
                     intent = new Intent(getApplicationContext(), CalendarActivity.class);
                     break;
+                case 6:
+                    intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    break;
                 default:
                     break;
             }

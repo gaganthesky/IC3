@@ -7,5 +7,6 @@
         <item>My Events</item>
         <item>Notifications</item>
         <item>Calendar</item>
+        <item>Profile</item>
     </string-array>
 </resources>

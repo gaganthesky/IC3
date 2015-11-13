@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="debug"><source path="C:\Users\Zhaohe\Downloads\gatorEvents\gatorEvents\viewPagerIndicator\build\intermediates\bundles\debug\assets"/></dataSet><dataSet config="main"><source path="C:\Users\Zhaohe\Downloads\gatorEvents\gatorEvents\viewPagerIndicator\src\androidTest\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="debug"><source path="/home/vineet/Documents/CEN/IC3/gatorEvents/viewPagerIndicator/build/intermediates/bundles/debug/assets"/></dataSet><dataSet config="main"><source path="/home/vineet/Documents/CEN/IC3/gatorEvents/viewPagerIndicator/src/androidTest/assets"/></dataSet></merger>
