@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
@@ -55,17 +56,11 @@ public class MainActivity extends DrawerActivity {
     private static final String TAG_EID = "E_id";
     private static final String TAG_NAME = "E_name";
     private static final String TAG_DES = "Description";
-    private static final String TAG_TIME = "Time";
-    private static final String TAG_DATE = "Date";
-    private static final String TAG_VENUE = "Venue";
-
+    private static final String TAG_COUNT = "Count";
 
     // events JSONArray
     JSONArray events = null;
-
     ListView lv;
-    String _name;
-    String _id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +101,7 @@ public class MainActivity extends DrawerActivity {
                 // getting values from selected ListItem
                 String eid = ((TextView) view.findViewById(R.id.eid)).getText()
                         .toString();
+//                Log.i("eid :==",eid);
                 myApp = (MyApp)getApplication();
                 myApp.e_uMap.put("U_id",myApp.uMap.get("U_id"));
                 myApp.e_uMap.put("U_name",myApp.uMap.get("U_name"));
@@ -228,17 +224,16 @@ public class MainActivity extends DrawerActivity {
                     events = json.getJSONArray(TAG_EVENTS);
 
                     // looping through All Events
-                    for (int i = 0; i < events.length(); i++) {
+                    for (int i = 0; i < events.length(); i++)
+                    {
+
                         JSONObject c = events.getJSONObject(i);
 
                         // Storing each json item in variable
                         String id = c.getString(TAG_EID);
                         String name = c.getString(TAG_NAME);
                         String decrp = c.getString(TAG_DES);
-                        String date = c.getString(TAG_DATE);
-                        String time = c.getString(TAG_TIME);
-                        String venue = c.getString(TAG_VENUE);
-
+                        String attendees = c.getString(TAG_COUNT);
 
                         // creating new HashMap
                         HashMap<String, String> map = new HashMap<String, String>();
@@ -247,14 +242,15 @@ public class MainActivity extends DrawerActivity {
                         map.put(TAG_EID, id);
                         map.put(TAG_NAME, name);
                         map.put(TAG_DES, decrp);
-                        map.put(TAG_DATE, date);
-                        map.put(TAG_TIME, time);
-                        map.put(TAG_VENUE, venue);
+                        map.put(TAG_COUNT, attendees);
 
                         // adding HashList to ArrayList
                         eventsList.add(map);
                     }
-                } else {
+                }
+                else
+
+                {
                     // no events found, go to home page
                     Intent i = new Intent(getApplicationContext(),
                             MainActivity.class);//HomeAcitivity
@@ -262,6 +258,7 @@ public class MainActivity extends DrawerActivity {
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -290,8 +287,8 @@ public class MainActivity extends DrawerActivity {
                     ListAdapter adapter = new SimpleAdapter(
                             MainActivity.this, eventsList,
                             R.layout.events_detail, new String[] { TAG_EID,
-                            TAG_NAME, TAG_DES},
-                            new int[] { R.id.eid, R.id.name, R.id.decrp});
+                            TAG_NAME, TAG_COUNT},
+                            new int[] { R.id.eid, R.id.name, R.id.attendees});
                     // updating listview
                         lv.setAdapter(adapter);
                 }

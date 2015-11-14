@@ -3,8 +3,15 @@
     <style name="AppTheme" parent="android:Theme.Material.Light">
         <item name="android:colorPrimary">#FFB74D</item>
         <item name="colorControlNormal">#4221A6</item>
+        <item name="colorAccent">#4221A6</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
         <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">#4221A6</item>
     </style>
 
     <style name="CustomLinePageIndicator">

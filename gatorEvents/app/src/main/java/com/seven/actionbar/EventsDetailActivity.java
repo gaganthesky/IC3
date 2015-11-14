@@ -1,5 +1,6 @@
 package com.seven.actionbar;
 
+import android.app.ActionBar;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -11,8 +12,10 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
@@ -31,6 +34,7 @@ public class EventsDetailActivity extends Activity {
 
     private static String url_detail_events = "http://www.ufgatorevents.com/android_connect/get_events_details.php";
     private static String url_join = "http://www.ufgatorevents.com/android_connect/join_events.php";
+    private static String url_leave = "http://www.ufgatorevents.com/android_connect/leave_event.php";
     private ProgressDialog pDialog;
 
     // JSON Node names
@@ -43,9 +47,7 @@ public class EventsDetailActivity extends Activity {
     // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
 
-    TextView tEid;
-    TextView tCat;
-    TextView tName;
+    ActionBar actionBar;
     TextView tDes;
     TextView tVenue;
     TextView tDate;
@@ -68,7 +70,7 @@ public class EventsDetailActivity extends Activity {
     String mOrg;
     String mCount;
 
-    Button btnJoin;
+    Switch goingSwitch;
 
     HashMap<String, String> joinMap;
 
@@ -77,8 +79,6 @@ public class EventsDetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_detail);
 
-        tCat = (TextView)findViewById(R.id.evt_cat);
-        tName = (TextView)findViewById(R.id.evt_ename);
         tDes = (TextView)findViewById(R.id.evt_desc);
         tVenue = (TextView)findViewById(R.id.evt_venue);
         tDate = (TextView)findViewById(R.id.evt_date);
@@ -95,14 +95,30 @@ public class EventsDetailActivity extends Activity {
 
         new LoadDetail().execute();
 
-        btnJoin = (Button)findViewById(R.id.btn_join);
-        btnJoin.setOnClickListener(new View.OnClickListener() {
+        goingSwitch = (Switch) findViewById(R.id.btn_join);
+        goingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+
+        {
             @Override
-            public void onClick(View v) {
-                new JoinEvents().execute();
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                new JoinEvents().execute(String.valueOf(isChecked));
             }
         });
+//        btnJoin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                new JoinEvents().execute();
+//            }
+//        });
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        actionBar = this.getActionBar();
+    }
+
 
     /******************************Join******************************************************/
     /**
@@ -130,12 +146,24 @@ public class EventsDetailActivity extends Activity {
             //String name = inputName.getText().toString();
 
             // Building Parameters
+            String going = args[0];
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("E_id", myApp.e_uMap.get("E_id")));
             // Building Parameters
             //List<NameValuePair> params = new ArrayList<NameValuePair>();
             // getting JSON string from URL
-            JSONObject json = jParser.makeHttpRequest(url_join, "GET", params);
+
+            JSONObject json;
+
+            if (going == "true")
+            {
+                json = jParser.makeHttpRequest(url_join, "GET", params);
+            }
+
+            else
+            {
+                json = jParser.makeHttpRequest(url_leave, "GET", params);
+            }
 
             // Check your log cat for JSON reponse
 //            Log.d("All Events: ", json.toString());
@@ -206,7 +234,7 @@ public class EventsDetailActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(EventsDetailActivity.this);//EventsActivity
-            pDialog.setMessage("Loading events. Please wait...");
+            pDialog.setMessage("Loading event. Please wait...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -243,17 +271,17 @@ public class EventsDetailActivity extends Activity {
                         JSONObject c = events.getJSONObject(i);
 
                         // Storing each json item in variable
-                        mCat = "Category: " + c.getString("Category");
-                        mName = "Event Name: " + c.getString("E_name");
-                        mDes = "Description: " + c.getString("Description");
-                        mVenue = "Venue: " + c.getString("Venue");
-                        mDate = "Event Date: " + c.getString("EDate");
-                        mTime = "Event Time: " + c.getString("Time");
-                        mPdate = "Posted Date: " + c.getString("Post_date");
-                        mPtime = "Posted Time: " + c.getString("Post_time");
-                        mCont = "Contact Person: " + c.getString("Contact_Person");
-                        mOrg = "Organization: " + c.getString("Organization");
-                        mCount = "Attendee#: " + c.getString("Count");
+                        mCat = c.getString("Category");
+                        mName =  c.getString("E_name");
+                        mDes = c.getString("Description");
+                        mVenue =  c.getString("Venue");
+                        mDate =  c.getString("EDate");
+                        mTime = c.getString("Time");
+                        mPdate = c.getString("Post_date");
+                        mPtime = c.getString("Post_time");
+                        mCont = c.getString("Contact_Person");
+                        mOrg = c.getString("Organization");
+                        mCount = c.getString("Count");
 
                         // creating new HashMap
                      /*   HashMap<String, String> map = new HashMap<String, String>();
@@ -307,8 +335,11 @@ public class EventsDetailActivity extends Activity {
                             new int[] { R.id.eid, R.id.name, R.id.decrp});
                     // updating listview
                     lv.setAdapter(adapter);*/
-                    tCat.setText(mCat);
-                    tName.setText(mName);
+//                    tCat.setText(mCat);
+//                    tName.setText(mName);
+
+
+                    actionBar.setTitle(mName);
                     tDes.setText(mDes);
                     tVenue.setText(mVenue);
                     tDate.setText(mDate);
