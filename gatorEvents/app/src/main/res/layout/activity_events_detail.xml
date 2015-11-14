@@ -8,7 +8,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4221A6"
+    android:background="@color/ufl_purple"
     android:orientation="vertical">
 
 
@@ -28,7 +28,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:textSize="20sp"
             android:text="Going? " />
@@ -58,7 +58,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Date " />
 
@@ -92,7 +92,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Time " />
 
@@ -126,7 +126,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Venue " />
 
@@ -160,7 +160,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Attending " />
 
@@ -194,7 +194,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Description " />
 
@@ -228,7 +228,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Contact Person " />
 
@@ -262,7 +262,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Organization " />
 
@@ -296,7 +296,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Posted On " />
 
@@ -330,7 +330,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:text="Posted at " />
 

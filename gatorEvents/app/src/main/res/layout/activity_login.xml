@@ -50,7 +50,7 @@
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:background="#4221a6"
+            android:background="@color/ufl_purple"
             android:textColor="#FFFFFF"
             android:textAllCaps="true"
             android:text="login" />
@@ -74,7 +74,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:gravity="center"
-            android:textColor="#4221A6"
+            android:textColor="@color/ufl_purple"
             android:textStyle="bold"
             android:onClick="register"
             android:text="Sign Up"/>

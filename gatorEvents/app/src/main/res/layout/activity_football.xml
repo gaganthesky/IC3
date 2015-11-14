@@ -9,7 +9,7 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="wrap_content"-->
     <!--android:orientation="vertical"-->
-    <!--android:background="#4221A6">-->
+    <!--android:background="@color/ufl_purple">-->
 
     <!--<TextView-->
     <!--android:layout_width="match_parent"-->
@@ -63,7 +63,7 @@
                     android:onClick="toggleContents"
                     android:tag="uflvsolemiss"
                     android:text="UFL vs OLE MISS"
-                    android:textColor="#4221A6" />
+                    android:textColor="@color/ufl_purple" />
             </LinearLayout>
 
             <LinearLayout
