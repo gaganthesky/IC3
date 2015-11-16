@@ -10,12 +10,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image_header"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/monalisa"/>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_header"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/monalisa"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient"/>
+
+        </FrameLayout>
 
         <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,14 +39,32 @@
                 android:background="@color/ufl_purple"
                 android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_corners"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/evt_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#AAA" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#DDD"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_corners"
                     android:orientation="horizontal">
 
                     <TextView
@@ -48,7 +77,7 @@
                         android:textColor="@color/ufl_purple"
                         android:textStyle="bold"
                         android:textSize="20sp"
-                        android:text="Going? " />
+                        android:text="Are You  Going? " />
 
                     <Switch
                         android:id="@+id/btn_join"
@@ -60,6 +89,9 @@
                         android:layout_marginRight="10dp"/>
 
                 </LinearLayout>
+
+            </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -76,7 +108,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Date " />
 
                     <View
@@ -110,7 +143,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Time " />
 
                     <View
@@ -144,7 +178,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Venue " />
 
                     <View
@@ -159,9 +194,44 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
-                        android:textColor="#222"/>
+                        android:textColor="@color/ufl_orange"
+                        android:onClick="showMap"/>
 
                 </LinearLayout>
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:background="@drawable/rounded_corners"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="15dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textColor="@color/ufl_purple"-->
+                        <!--android:textStyle="normal"-->
+                        <!--android:text="Attending " />-->
+
+                    <!--<View-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="0.5dp"-->
+                        <!--android:background="#DDD"/>-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/evt_count"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:textColor="#222"/>-->
+
+                <!--</LinearLayout>-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -178,41 +248,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
-                        android:text="Attending " />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="#DDD"/>
-
-                    <TextView
-                        android:id="@+id/evt_count"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#222"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_corners"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Description " />
 
                     <View
@@ -246,7 +283,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Contact Person " />
 
                     <View
@@ -280,7 +318,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Organization " />
 
                     <View
@@ -314,7 +353,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Posted On " />
 
                     <View
@@ -349,7 +389,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/ufl_purple"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
                         android:text="Posted at " />
 
                     <View

@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -27,7 +28,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -140,6 +143,16 @@ public class EventsDetailActivity extends Activity {
         super.onStart();
         actionBar = this.getActionBar();
         actionBar.setDisplayShowHomeEnabled(false);
+    }
+
+    public void showMap(View view)
+    {
+
+        Intent google_map = new Intent(android.content.Intent.ACTION_VIEW);
+
+        google_map.setData(Uri.parse("geo:0,0?q=:" + mVenue));
+
+        startActivity(google_map);
     }
 
 
@@ -362,16 +375,87 @@ public class EventsDetailActivity extends Activity {
 //                    tName.setText(mName);
 
 
+                    //Formatting the date
+                    SimpleDateFormat formatDate1 = new SimpleDateFormat("yyyy-MM-dd");
+                    Date event_date_format = null;
+                    Date posted_date_format = null;
+
+                    try
+                    {
+                        event_date_format = formatDate1.parse(mDate);
+                        posted_date_format = formatDate1.parse(mPdate);
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.print(e);
+                    }
+                    SimpleDateFormat formatDate2 = new SimpleDateFormat("EEE, dd MMM yyyy");
+                    String event_date = null;
+                    String posted_date = null;
+                    try
+                    {
+                        event_date = formatDate2.format(event_date_format);
+                        posted_date = formatDate2.format(posted_date_format);
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.print(e);
+                    }
+
+                    //Formatting the time
+                    SimpleDateFormat formatTime1 = new SimpleDateFormat("hh:mm:ss");
+                    Date event_time_format = null;
+                    Date posted_time_format = null;
+                    try
+                    {
+                        event_time_format = formatTime1.parse(mTime);
+                        posted_time_format = formatTime1.parse(mPtime);
+
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.print(e);
+                    }
+                    SimpleDateFormat formatTime2 = new SimpleDateFormat("hh:mm aaa");
+                    String event_time = null;
+                    String posted_time = null;
+                    try
+                    {
+                        event_time = formatTime2.format(event_time_format);
+                        posted_time = formatTime2.format(posted_time_format);
+                    }
+                    catch (Exception e)
+                    {
+                        System.err.print(e);
+                    }
+
+
+
+
                     actionBar.setTitle(mName);
                     tDes.setText(mDes);
                     tVenue.setText(mVenue);
-                    tDate.setText(mDate);
-                    tTime.setText(mTime);
-                    tPdate.setText(mPdate);
-                    tPtime.setText(mPtime);
+                    tDate.setText(event_date);
+                    tTime.setText(event_time);
+                    tPdate.setText(posted_date);
+                    tPtime.setText(posted_time);
                     tCont.setText(mCont);
                     tOrg.setText(mOrg);
-                    tCount.setText(mCount);
+                    int count = Integer.parseInt(mCount);
+                    String countText = null;
+                    if (count == 0)
+                    {
+                        countText = "Be the first to attend!";
+                    }
+                    else if (count == 1)
+                    {
+                        countText = "1 person is going";
+                    }
+                    else
+                    {
+                        countText = mCount + " people are going";
+                    }
+                    tCount.setText(countText);
                 }
             });
 
