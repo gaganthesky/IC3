@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -130,9 +131,20 @@ public class CategoryActivity extends DrawerActivity {
     }
 
 
-    public void clickedFootball(View view)
+    public void clickedCategory(View view)
     {
-        Intent intent = new Intent(this, FootballActivity.class);
+        String category = getResources().getResourceName(view.getId());
+//        String categoryName = category.replace("com.seven.actionbar:/id", "");
+        String categoryName = category.replace("com.seven.actionbar:id/", "");
+        Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
+
+        Bundle extras = new Bundle();
+        extras.putString("TYPE", "CATEGORY_SEARCH");
+        extras.putString("CATEGORY", categoryName);
+        intent.putExtras(extras);
+
+        Log.i("categoryName : ", categoryName);
+
         startActivity(intent);
 
     }

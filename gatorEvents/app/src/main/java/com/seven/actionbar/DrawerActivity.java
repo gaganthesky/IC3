@@ -171,13 +171,13 @@ public class DrawerActivity extends FragmentActivity
                 case 4:
                    // intent = new Intent(getApplicationContext(), NotificationsActivity.class);
                     intent = new Intent(getApplicationContext(), NotificationsActivity.class);
-                    intent.putExtra("userMap", myMap);
                     break;
                 case 5:
                     intent = new Intent(getApplicationContext(), CalendarActivity.class);
                     break;
                 case 6:
                     intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    intent.putExtra("userMap", myMap);
                     break;
                 default:
                     break;
@@ -192,7 +192,7 @@ public class DrawerActivity extends FragmentActivity
             }, 2000);
 //            mDrawerList.setSelection(position);
             startActivity(intent);
-           // finish();
+            finish();
 //            setTitle(mActivityTitles[position]);
 
         }

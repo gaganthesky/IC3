@@ -63,9 +63,7 @@ public class CalendarActivity extends DrawerActivity {
             intent.putExtras(extras);
             Log.i("dateString : ", dateString);
 
-
             startActivity(intent);
-            finish();
 
         }
     };
@@ -85,10 +83,6 @@ public class CalendarActivity extends DrawerActivity {
             System.err.println(e.toString());
         }
         return true;
-    }
-
-    public void initializeCalendar()
-    {
     }
 
 

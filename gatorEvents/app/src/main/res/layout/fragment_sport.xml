@@ -21,8 +21,8 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/football"
-            android:onClick="clickedFootball"
+            android:id="@+id/Football"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -33,6 +33,8 @@
             android:text="Football" />
 
         <Button
+            android:id="@+id/Basketball"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -40,9 +42,11 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/football"
             android:textAllCaps="false"
-            android:text="Football" />
+            android:text="Basketball" />
 
         <Button
+            android:id="@+id/Baseball"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,7 +54,7 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/football"
             android:textAllCaps="false"
-            android:text="Football" />
+            android:text="Baseball" />
 
 
     </LinearLayout>
@@ -62,6 +66,8 @@
         android:orientation="horizontal" >
 
         <Button
+            android:id="@+id/Volleyball"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,9 +75,11 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/football"
             android:textAllCaps="false"
-            android:text="Football" />
+            android:text="Volleyball" />
 
         <Button
+            android:id="@+id/Soccer"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -79,9 +87,11 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/football"
             android:textAllCaps="false"
-            android:text="Football" />
+            android:text="Soccer" />
 
         <Button
+            android:id="@+id/Lacrosse"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,10 +99,12 @@
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/football"
             android:textAllCaps="false"
-            android:text="Football" />
+            android:text="Lacrosse" />
 
 
-    </LinearLayout><LinearLayout
+    </LinearLayout>
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="16dp"
@@ -109,6 +121,8 @@
         android:text="Football" />
 
     <Button
+        android:id="@+id/SwimmingDiving"
+        android:onClick="clickedCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -116,9 +130,11 @@
         android:background="@android:color/transparent"
         android:drawableTop="@drawable/football"
         android:textAllCaps="false"
-        android:text="Football" />
+        android:text="Swimming &amp; Diving " />
 
     <Button
+        android:id="@+id/Tennis"
+        android:onClick="clickedCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -126,7 +142,7 @@
         android:background="@android:color/transparent"
         android:drawableTop="@drawable/football"
         android:textAllCaps="false"
-        android:text="Football" />
+        android:text="Tennis" />
 
 
 </LinearLayout>
