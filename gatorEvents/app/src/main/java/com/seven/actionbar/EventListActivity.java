@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -63,6 +64,8 @@ public class EventListActivity extends Activity {
     String typeSpecific;
     String typeSearch;
     TextView textView;
+    LinearLayout linearLayout;
+    boolean eventsFound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,7 @@ public class EventListActivity extends Activity {
 
         // Get TextView
         textView = (TextView) findViewById(R.id.list_title);
+        linearLayout = (LinearLayout) findViewById(R.id.no_events_display);
 
         // Retrieve data from bundle
         Intent intent = getIntent();
@@ -220,6 +224,7 @@ public class EventListActivity extends Activity {
 
                 if (success == 1) {
                     // events found
+                    eventsFound = true;
                     // Getting Array of events
                     events = json.getJSONArray(TAG_EVENTS);
 
@@ -286,11 +291,7 @@ public class EventListActivity extends Activity {
 
                 {
                     // no events found, go to home page
-                    Intent i = new Intent(getApplicationContext(),
-                            MainActivity.class);//HomeAcitivity
-                    // Closing all previous activities
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(i);
+                    eventsFound = false;
                 }
 
             } catch (JSONException e) {
@@ -318,14 +319,23 @@ public class EventListActivity extends Activity {
                     /**
                      * Updating parsed JSON data into ListView   EventsActivity
                      * */
+                    if (eventsFound)
+                    {
+                        linearLayout.setVisibility(View.GONE);
+                        ListAdapter adapter = new SimpleAdapter(
+                                EventListActivity.this, eventsList,
+                                R.layout.events_detail, new String[]{TAG_EID,
+                                TAG_NAME, TAG_COUNT, TAG_DATE, TAG_TIME},
+                                new int[]{R.id.eid, R.id.name, R.id.attendees, R.id.date, R.id.time});
+                        // updating listview
+                        lv.setAdapter(adapter);
+                    }
+                    else
+                    {
+                        lv.setVisibility(View.GONE);
+                        linearLayout.setVisibility(View.VISIBLE);
+                    }
 
-                    ListAdapter adapter = new SimpleAdapter(
-                            EventListActivity.this, eventsList,
-                            R.layout.events_detail, new String[] { TAG_EID,
-                            TAG_NAME, TAG_COUNT, TAG_DATE, TAG_TIME},
-                            new int[] { R.id.eid, R.id.name, R.id.attendees, R.id.date, R.id.time});
-                    // updating listview
-                    lv.setAdapter(adapter);
                 }
             });
 
