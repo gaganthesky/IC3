@@ -160,6 +160,10 @@
             android:label="@string/title_activity_events_detail"
             android:theme="@style/Theme.TranslucentActionBar.ActionBar.Overlay">
         </activity>
+        <activity
+            android:name=".EventListActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

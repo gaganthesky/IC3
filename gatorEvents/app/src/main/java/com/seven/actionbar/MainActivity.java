@@ -1,16 +1,13 @@
 package com.seven.actionbar;
 
-import android.app.Activity;
+
 import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
@@ -19,7 +16,6 @@ import android.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -28,7 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -57,6 +55,8 @@ public class MainActivity extends DrawerActivity {
     private static final String TAG_NAME = "E_name";
     private static final String TAG_DES = "Description";
     private static final String TAG_COUNT = "Count";
+    private static final String TAG_DATE = "Date";
+    private static final String TAG_TIME = "Time";
 
     // events JSONArray
     JSONArray events = null;
@@ -234,15 +234,49 @@ public class MainActivity extends DrawerActivity {
                         String name = c.getString(TAG_NAME);
                         String decrp = c.getString(TAG_DES);
                         String attendees = c.getString(TAG_COUNT);
+                        String date = c.getString(TAG_DATE);
+                        String time = c.getString(TAG_TIME);
 
                         // creating new HashMap
                         HashMap<String, String> map = new HashMap<String, String>();
+
+                        // formatting date and time
+                        SimpleDateFormat formatDate1 = new SimpleDateFormat("yyyy-MM-dd");
+                        Date event_date_format = null;
+                        SimpleDateFormat formatTime1 = new SimpleDateFormat("hh:mm:ss");
+                        Date event_time_format = null;
+
+                        try
+                        {
+                            event_date_format = formatDate1.parse(date);
+                            event_time_format = formatTime1.parse(time);
+                        }
+
+                        catch (Exception e)
+                        {
+                            System.err.print(e);
+                        }
+                        SimpleDateFormat formatDate2 = new SimpleDateFormat("EEE, dd MMM");
+                        String event_date = null;
+                        SimpleDateFormat formatTime2 = new SimpleDateFormat("hh:mm aaa");
+                        String event_time = null;
+                        try
+                        {
+                            event_date = formatDate2.format(event_date_format);
+                            event_time = formatTime2.format(event_time_format);
+                        }
+                        catch (Exception e)
+                        {
+                            System.err.print(e);
+                        }
 
                         // adding each child node to HashMap key => value
                         map.put(TAG_EID, id);
                         map.put(TAG_NAME, name);
                         map.put(TAG_DES, decrp);
                         map.put(TAG_COUNT, attendees);
+                        map.put(TAG_DATE, event_date);
+                        map.put(TAG_TIME, event_time);
 
                         // adding HashList to ArrayList
                         eventsList.add(map);
@@ -287,8 +321,8 @@ public class MainActivity extends DrawerActivity {
                     ListAdapter adapter = new SimpleAdapter(
                             MainActivity.this, eventsList,
                             R.layout.events_detail, new String[] { TAG_EID,
-                            TAG_NAME, TAG_COUNT},
-                            new int[] { R.id.eid, R.id.name, R.id.attendees});
+                            TAG_NAME, TAG_COUNT, TAG_DATE, TAG_TIME},
+                            new int[] { R.id.eid, R.id.name, R.id.attendees, R.id.date, R.id.time});
                     // updating listview
                         lv.setAdapter(adapter);
                 }
