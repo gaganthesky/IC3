@@ -122,6 +122,7 @@ public class MainActivity extends DrawerActivity {
                 // starting new activity and expecting some response back
                 startActivityForResult(in, 100);
 
+
             }
         });
 
@@ -133,13 +134,15 @@ public class MainActivity extends DrawerActivity {
 
 
     @Override
+    public void onResume()
+    {
+        super.onResume();
+    }
+    @Override
     public void onStart(){
         super.onStart();
         ActionBar actionBar = this.getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle(getResources().getString(R.string.home_name));
-
-
     }
 
     // Response from HomeActivity

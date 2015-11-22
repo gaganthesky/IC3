@@ -9,7 +9,18 @@
 <!--</resources>-->
 
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
+        <item name="colorPrimaryDark">@color/ufl_orange_dark</item>
+        <item name="android:colorPrimary">#FFB74D</item>
+        <item name="colorControlNormal">@color/ufl_purple</item>
+        <item name="colorAccent">@color/ufl_orange</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
+        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="android:Theme.Material.Light">
+        <item name="colorPrimaryDark">@color/ufl_orange_dark</item>
         <item name="android:colorPrimary">#FFB74D</item>
         <item name="colorControlNormal">#4221A6</item>
         <item name="colorAccent">#4221A6</item>
@@ -18,11 +29,10 @@
         <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
     </style>
 
-    <style name="EventsTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--<item name="windowActionBar">false</item>-->
-        <!--<item name="windowNoTitle">true</item>-->
+    <style name="EventsTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/ufl_orange</item>
-        <item name="colorPrimaryDark">@color/ufl_orange_dark</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">

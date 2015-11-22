@@ -53,6 +53,8 @@ public class CalendarActivity extends DrawerActivity {
             int month = date.getMonth();
             int year = date.getYear();
             month += 1;
+            widget.clearSelection();
+            widget.setSelectedDate(CalendarDay.today());
             String dateString = String.valueOf(year) + "-" + String.valueOf(month)
                     + "-" + String.valueOf(day);
 

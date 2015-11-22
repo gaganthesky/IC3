@@ -1,11 +1,14 @@
 package com.seven.actionbar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -72,6 +75,8 @@ public class EventListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
 
+        ActionBar actionBar = this.getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Get TextView
         textView = (TextView) findViewById(R.id.list_title);
@@ -165,6 +170,17 @@ public class EventListActivity extends Activity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     // Response from HomeActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -177,6 +193,12 @@ public class EventListActivity extends Activity {
             finish();
             startActivity(intent);
         }
+
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
 
     }
 

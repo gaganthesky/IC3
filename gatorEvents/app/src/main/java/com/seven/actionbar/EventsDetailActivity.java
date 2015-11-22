@@ -12,10 +12,15 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
@@ -34,7 +39,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class EventsDetailActivity extends Activity {
+public class EventsDetailActivity extends AppCompatActivity {
 
     public MyApp myApp;
 
@@ -75,6 +80,7 @@ public class EventsDetailActivity extends Activity {
     String mCont;
     String mOrg;
     String mCount;
+    String mGoingStatus;
 
     // UI Components -  switch and drawable for action bar
     Switch goingSwitch;
@@ -82,13 +88,16 @@ public class EventsDetailActivity extends Activity {
 
     HashMap<String, String> joinMap;
 
+    Toolbar toolbar;
+    CollapsingToolbarLayout collapsingToolbar;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventsdetail);
 
-        actionBarColor =
-                new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.ufl_orange));
+        goingSwitch = (Switch) findViewById(R.id.btn_join);
 
         tDes = (TextView)findViewById(R.id.evt_desc);
         tVenue = (TextView)findViewById(R.id.evt_venue);
@@ -105,44 +114,19 @@ public class EventsDetailActivity extends Activity {
         myApp = (MyApp)getApplication();
 
         //action bar magic
-        actionBarColor.setAlpha(0);
-        getActionBar().setBackgroundDrawable(actionBarColor);
-        ((NotifyingScrollView) findViewById(R.id.scroll_view))
-                .setOnScrollChangedListener(mOnScrollChangedListener);
+        toolbar = (Toolbar) findViewById(R.id.anim_toolbar);
+        setSupportActionBar(toolbar);
+        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        ImageView header = (ImageView) findViewById(R.id.header);
 
         new LoadDetail().execute();
 
-        goingSwitch = (Switch) findViewById(R.id.btn_join);
-        goingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                new JoinEvents().execute(String.valueOf(isChecked));
-            }
-        });
+        goingSwitch.setOnCheckedChangeListener(null);
     }
-
-    private NotifyingScrollView.OnScrollChangedListener mOnScrollChangedListener =
-            new NotifyingScrollView.OnScrollChangedListener()
-            {
-                public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt)
-                {
-                    final int headerHeight =
-                            findViewById(R.id.image_header).getHeight() - getActionBar().getHeight();
-                    final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
-                    final int newAlpha = (int) (ratio * 255);
-                    actionBarColor.setAlpha(newAlpha);
-            }
-    };
-
 
     @Override
     public void onStart(){
         super.onStart();
-        actionBar = this.getActionBar();
-        actionBar.setDisplayShowHomeEnabled(false);
     }
 
     public void showMap(View view)
@@ -184,6 +168,7 @@ public class EventsDetailActivity extends Activity {
             // Building Parameters
             String going = args[0];
             List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("U_id", myApp.e_uMap.get("U_id")));
             params.add(new BasicNameValuePair("E_id", myApp.e_uMap.get("E_id")));
             // Building Parameters
             //List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -284,6 +269,7 @@ public class EventsDetailActivity extends Activity {
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("uid", myApp.e_uMap.get("U_id")));
             params.add(new BasicNameValuePair("eid", myApp.e_uMap.get("E_id")));
             // Building Parameters
             //List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -318,7 +304,7 @@ public class EventsDetailActivity extends Activity {
                         mCont = c.getString("Contact_Person");
                         mOrg = c.getString("Organization");
                         mCount = c.getString("Count");
-
+                        mGoingStatus = c.getString("isGoing");
                         // creating new HashMap
                      /*   HashMap<String, String> map = new HashMap<String, String>();
 
@@ -429,10 +415,30 @@ public class EventsDetailActivity extends Activity {
                         System.err.print(e);
                     }
 
+                    if (mGoingStatus.equals("true"))
+                    {
+                        Log.i("going status : ", mGoingStatus);
+                        boolean mGoing = true;
+                        goingSwitch.setChecked(mGoing);
+                    }
+                    else
+                    {
+                        Log.i("going status : ", mGoingStatus);
+                        boolean mGoing = false;
+                        goingSwitch.setChecked(mGoing);
+                    }
 
+                    goingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
 
+                    {
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+                        {
+                            new JoinEvents().execute(String.valueOf(isChecked));
+                        }
+                    });
 
-                    actionBar.setTitle(mName);
+                    collapsingToolbar.setTitle(mName);
                     tDes.setText(mDes);
                     tVenue.setText(mVenue);
                     tDate.setText(event_date);
