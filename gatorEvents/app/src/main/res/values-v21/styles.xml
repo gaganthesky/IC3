@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/ufl_orange</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
-        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
     </style>
 
     <style name="ActionBarTheme" parent="android:Theme.Material.Light">
@@ -44,8 +43,8 @@
     <style name="CustomLinePageIndicator">
         <item name="strokeWidth">4dp</item>
         <item name="lineWidth">30dp</item>
-        <item name="unselectedColor">#FFAAAAAA</item>
-        <item name="selectedColor">#FF4221A6</item>
+        <item name="unselectedColor">#E68800</item>
+        <item name="selectedColor">#FFB74D</item>
     </style>
 
     <style name="AppThemeNoTitle" parent="AppTheme">

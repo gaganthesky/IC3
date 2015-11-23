@@ -16,7 +16,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo"
-        android:label="@string/app_name"
+        android:label="FSI"
         android:theme="@style/AppTheme"
         android:name="MyApp">
         <activity

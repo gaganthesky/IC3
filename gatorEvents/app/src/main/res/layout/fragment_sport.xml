@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ufl_purple"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -10,7 +11,7 @@
         android:gravity="center"
         android:paddingBottom="20dp"
         android:textAllCaps="true"
-        android:textColor="#222222"
+        android:textColor="#FFF"
         android:textSize="25sp"
         android:text="sports" />
 
@@ -29,6 +30,7 @@
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/football"
+            android:textColor="#FFF"
             android:textAllCaps="false"
             android:text="Football" />
 
@@ -40,7 +42,8 @@
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/basketball"
+            android:textColor="#FFF"
             android:textAllCaps="false"
             android:text="Basketball" />
 
@@ -52,7 +55,8 @@
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/baseball"
+            android:textColor="#FFF"
             android:textAllCaps="false"
             android:text="Baseball" />
 
@@ -73,7 +77,8 @@
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/volleyball"
+            android:textColor="#FFF"
             android:textAllCaps="false"
             android:text="Volleyball" />
 
@@ -85,7 +90,8 @@
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/soccer"
+            android:textColor="#FFF"
             android:textAllCaps="false"
             android:text="Soccer" />
 
@@ -97,7 +103,8 @@
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/lacrosse"
+            android:textColor="#FFF"
             android:textAllCaps="false"
             android:text="Lacrosse" />
 
@@ -111,14 +118,16 @@
     android:orientation="horizontal" >
 
     <Button
+        android:id="@+id/Golf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="16dp"
         android:background="@android:color/transparent"
-        android:drawableTop="@drawable/football"
+        android:drawableTop="@drawable/golf"
+        android:textColor="#FFF"
         android:textAllCaps="false"
-        android:text="Football" />
+        android:text="Golf" />
 
     <Button
         android:id="@+id/SwimmingDiving"
@@ -128,7 +137,8 @@
         android:layout_weight="1"
         android:layout_margin="16dp"
         android:background="@android:color/transparent"
-        android:drawableTop="@drawable/football"
+        android:drawableTop="@drawable/sd"
+        android:textColor="#FFF"
         android:textAllCaps="false"
         android:text="Swimming &amp; Diving " />
 
@@ -140,7 +150,8 @@
         android:layout_weight="1"
         android:layout_margin="16dp"
         android:background="@android:color/transparent"
-        android:drawableTop="@drawable/football"
+        android:drawableTop="@drawable/tennis"
+        android:textColor="#FFF"
         android:textAllCaps="false"
         android:text="Tennis" />
 

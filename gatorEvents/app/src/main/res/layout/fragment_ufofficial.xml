@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ufl_purple"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -10,7 +11,7 @@
         android:gravity="center"
         android:paddingBottom="20dp"
         android:textAllCaps="true"
-        android:textColor="#222222"
+        android:textColor="#FFF"
         android:textSize="25sp"
         android:text="uf official" />
 
@@ -21,34 +22,16 @@
         android:orientation="horizontal" >
 
         <Button
+            android:id="@+id/CISE"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/cise"
+            android:textColor="#FFF"
             android:textAllCaps="false"
-            android:text="Football" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
-            android:textAllCaps="false"
-            android:text="Football" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
-            android:textAllCaps="false"
-            android:text="Football" />
+            android:text="UF CISE" />
 
 
     </LinearLayout>
@@ -59,72 +42,28 @@
         android:paddingBottom="16dp"
         android:orientation="horizontal" >
 
+
         <Button
+            android:id="@+id/COE"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
+            android:drawableTop="@drawable/coe"
+            android:textColor="#FFF"
             android:textAllCaps="false"
-            android:text="Football" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
-            android:textAllCaps="false"
-            android:text="Football" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/football"
-            android:textAllCaps="false"
-            android:text="Football" />
+            android:text="College of Engineering" />
 
 
-    </LinearLayout><LinearLayout
+    </LinearLayout>
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="16dp"
     android:orientation="horizontal" >
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:drawableTop="@drawable/football"
-        android:textAllCaps="false"
-        android:text="Football" />
 
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:drawableTop="@drawable/football"
-        android:textAllCaps="false"
-        android:text="Football" />
-
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:drawableTop="@drawable/football"
-        android:textAllCaps="false"
-        android:text="Football" />
 
 
 </LinearLayout>
