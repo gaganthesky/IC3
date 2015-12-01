@@ -9,23 +9,19 @@
 $response = array();
  
 // check for required fields
-if (isset($_POST['name']) && isset($_POST['email'])) {
+if (isset($_GET['name']) && isset($_GET['email'])) {
  
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+    $name = $_GET['name'];
+    $email = $_GET['email'];
  
     // include db connect class
-    require_once('db_connect.php');
-	//require_once __DIR__. '/db_config.php';
+    require_once __DIR__ . '/db_connect.php';
  
     // connecting to db
-    $db = new DB_CONNECT;
-	
-	//$con = mysqli_connect("mysql-gatorevents-db.ufgatorevents.com", "gatorevents_db", "ic3_ZVSGCA", "gatorevents_db")
-	//	or die(mysqli_connect_error());
+    $db = new DB_CONNECT();
  
     // mysql inserting a new row
-    $result = mysqli_query($db->connect(), "INSERT INTO Users (Name, Email) VALUES ('$name', '$email')");
+    $result = mysqli_query($db, "INSERT INTO Users(Name, Email) VALUES($name, $email)");
  
     // check if row inserted or not
     if ($result) {
@@ -39,13 +35,7 @@ if (isset($_POST['name']) && isset($_POST['email'])) {
         // failed to insert row
         $response["success"] = 0;
         $response["message"] = "Oops! An error occurred.";
-		
-		//check the status
-		//$response["name"]=$name;
-		//$response["email"]=$email;
-		//$response["connection"]=$con;
-		//$response["result"]=$result;
-		
+ 
         // echoing JSON response
         echo json_encode($response);
     }

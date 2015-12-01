@@ -6,7 +6,6 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
     android:orientation="vertical"
     android:background="@color/ufl_purple">
 
@@ -22,41 +21,27 @@
 
 </LinearLayout>
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/no_events_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/ufl_purple"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:text="No Events Found"/>
+    </LinearLayout>
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/my_events_imageID"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_drawer"/>
-
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:id="@+id/my_event_detailID"
-                    android:text="jbshdfwegfwegfhgefg"/>
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

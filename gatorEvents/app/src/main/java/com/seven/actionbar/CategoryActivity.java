@@ -136,6 +136,7 @@ public class CategoryActivity extends DrawerActivity {
         String category = getResources().getResourceName(view.getId());
 //        String categoryName = category.replace("com.seven.actionbar:/id", "");
         String categoryName = category.replace("com.seven.actionbar:id/", "");
+        categoryName = categoryName.replace("_", " ");
         Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
 
         Bundle extras = new Bundle();
