@@ -22,7 +22,8 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/AlphaDeltaPi"
+            android:id="@+id/Alpha_Delta_Pi"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -44,7 +45,8 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/AlphaEpsilonPi"
+            android:id="@+id/Alpha_Epsilon_Pi"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,7 +60,8 @@
 
 
         <Button
-            android:id="@+id/AlphaThetaOmega"
+            android:id="@+id/Alpha_Theta_Omega"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,7 +81,8 @@
 
 
     <Button
-        android:id="@+id/ChiOmega"
+        android:id="@+id/Chi_Omega"
+        android:onClick="clickedCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

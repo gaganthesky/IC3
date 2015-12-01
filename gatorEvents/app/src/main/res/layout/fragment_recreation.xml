@@ -48,7 +48,8 @@
 
 
         <Button
-            android:id="@+id/GatorNight"
+            android:id="@+id/Gator_Night"
+            android:onClick="clickedCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

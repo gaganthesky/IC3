@@ -37,7 +37,7 @@ if (isset($_GET['TYPE']))
     // {
     //     $uid = $_GET["U_id"];
     //     $_list = mysqli_query($db->connect(),"SELECT EventList FROM Users WHERE U_id = '$uid' ");
-	// 	$_evtList = mysqli_fetch_row($_list);
+	// 	   $_evtList = mysqli_fetch_row($_list);
     //     $userEventsArray = $_evtList[0];
     //     $result = mysqli_query($db->connect(), "SELECT * FROM Events WHERE E_id IN ({implode(',', $userEventsArray)})");
 	// var_dump($result);
