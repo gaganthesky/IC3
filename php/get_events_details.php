@@ -46,6 +46,7 @@ if (isset($_GET['eid']) && isset($_GET['uid'])) {
 			$event["E_id"] = $row["E_id"];
 			$event["Category"]=$row["Category"];
 			$event["E_name"] = $row["E_name"];
+            $event["ImageURL"] = $row["Attachments"]; //GET IMAGE URL FROM DATABASE
 			$event["Description"] = $row["Description"];
 			$event["Venue"] = $row["Venue"];
 			$event["EDate"] = $row["EDate"];

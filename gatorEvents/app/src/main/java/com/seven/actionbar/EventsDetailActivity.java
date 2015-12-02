@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -26,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -51,7 +54,6 @@ public class EventsDetailActivity extends AppCompatActivity {
     // Creating JSON Parser object
     JSONParser jParser = new JSONParser();
 
-    ActionBar actionBar;
     TextView tDes;
     TextView tVenue;
     TextView tDate;
@@ -61,9 +63,11 @@ public class EventsDetailActivity extends AppCompatActivity {
     TextView tCont;
     TextView tOrg;
     TextView tCount;
+    ImageView header;
 
     String mCat;
     String mName;
+    String mImageURL;
     String mDes;
     String mVenue;
     String mDate;
@@ -110,7 +114,7 @@ public class EventsDetailActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.anim_toolbar);
         setSupportActionBar(toolbar);
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        ImageView header = (ImageView) findViewById(R.id.header);
+        header = (ImageView) findViewById(R.id.header);
 
         new LoadDetail().execute();
 
@@ -288,6 +292,7 @@ public class EventsDetailActivity extends AppCompatActivity {
                         // Storing each json item in variable
                         mCat = c.getString("Category");
                         mName =  c.getString("E_name");
+                        mImageURL = c.getString("ImageURL");
                         mDes = c.getString("Description");
                         mVenue =  c.getString("Venue");
                         mDate =  c.getString("EDate");
@@ -455,12 +460,39 @@ public class EventsDetailActivity extends AppCompatActivity {
                         countText = mCount + " people are going";
                     }
                     tCount.setText(countText);
+
+                    new DownloadImageTask((ImageView) findViewById(R.id.header)).execute(mImageURL);
                 }
             });
 
 
         }
 
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 
 }
