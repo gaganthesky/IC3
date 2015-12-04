@@ -12,8 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
+
+import java.util.HashMap;
 
 public class ProfileActivity extends DrawerActivity {
+
+    SessionManager session;
+
+    TextView txtUID;
+    TextView txtUName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +33,24 @@ public class ProfileActivity extends DrawerActivity {
                 (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View activityView = layoutInflater.inflate(R.layout.activity_profile, null, false);
         frameLayout.addView(activityView);
+
+        session = new SessionManager(getApplicationContext());
+
+        txtUID = (TextView)findViewById(R.id.txt_uid);
+        txtUName = (TextView)findViewById(R.id.txt_name);
+
+        HashMap<String, String> user = session.getUserDetails();
+        String name = user.get(SessionManager.KEY_NAME);
+        String uid = user.get(SessionManager.KEY_ID);
+
+        txtUID.setText(uid);
+        txtUName.setText(name);
+
     }
 
-    public void logout(View v)
+    public void logout(View view)
     {
-        SharedPreferences sharedpreferences = getSharedPreferences(
-                LoginActivity.myPreferences,
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.clear();
-        editor.commit();
+        session.logoutUser();
     }
 
     @Override

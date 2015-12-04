@@ -40,9 +40,7 @@ public class LoginActivity extends Activity {
 
     JSONParser jsonParser = new JSONParser();
 
-    SharedPreferences sharedPreferences;
-    public static final String myPreferences = "myPrefs";
-    public static final String nameKey = "nameKey";
+    SessionManager session;
 
     //url to create new user
     private static String url_login = "http://www.ufgatorevents.com/android_connect/login_user.php";
@@ -59,6 +57,24 @@ public class LoginActivity extends Activity {
 
         mName = (EditText)findViewById(R.id.loginName);
         mLogin = (Button)findViewById(R.id.btnLogin);
+
+        session = new SessionManager(getApplicationContext());
+
+        if (session.checkLogin() == true)
+        {
+
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
+            HashMap<String, String> user = session.getUserDetails();
+            String name = user.get(SessionManager.KEY_NAME);
+            String uid = user.get(SessionManager.KEY_ID);
+
+            myApp = (MyApp)getApplication();
+            myApp.uMap.put("U_id",uid);
+            myApp.uMap.put("U_name",name);
+            startActivity(i);
+
+        }
 
         // button click event
         mLogin.setOnClickListener(new View.OnClickListener() {
@@ -124,15 +140,11 @@ public class LoginActivity extends Activity {
                     // successfully login
                     String uid = json.getString("U_id");
 
+                    //Creating session
+                    session.createLoginSession(name, uid);
 
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
 
-                    //creating Session
-                    sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE);
-
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(nameKey, name);
-                    editor.commit();
 
                     //HashMap<String, String> userMap = new HashMap<String, String>();
                     //userMap.put("U_id",uid);
@@ -180,6 +192,8 @@ public class LoginActivity extends Activity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
+
+
         }
 
     }
