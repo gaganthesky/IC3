@@ -20,4 +20,14 @@
         app:mcv_weekDayTextAppearance="@style/CalendarText" />
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/todayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_menu_today"
+        android:onClick="getToday"/>
+
 </LinearLayout>

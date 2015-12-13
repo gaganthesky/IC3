@@ -74,6 +74,9 @@ public class MyEventsActivity extends DrawerActivity
     LinearLayout linearLayout;
     boolean eventsFound;
 
+    // For resume
+    private boolean resumeHasRun = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,17 @@ public class MyEventsActivity extends DrawerActivity
             }
         });
 
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        if (!resumeHasRun) {
+            resumeHasRun = true;
+            return;
+        }
+        new LoadMyEvents().execute();
     }
 
     @Override
@@ -319,6 +333,7 @@ public class MyEventsActivity extends DrawerActivity
                                 new int[]{R.id.eid, R.id.name, R.id.attendees, R.id.date, R.id.time});
                         // updating listview
                         lv.setAdapter(adapter);
+                        eventsList = new ArrayList<HashMap<String, String>>();
                     }
                     else
                     {

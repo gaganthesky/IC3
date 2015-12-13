@@ -133,7 +133,7 @@
         <activity
             android:name=".CalendarActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/ActionBarTheme"
+            android:theme="@style/CalendarTheme"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

@@ -13,18 +13,22 @@
         android:id="@+id/txt_uid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:textSize="30sp" />
 
     <TextView
-        android:textSize="50sp"
+        android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txt_name" />
+        android:layout_below="@id/txt_uid"
+        android:layout_marginBottom="10dp"
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txt_name"
         android:onClick="logout"
         android:text="logout"/>
 

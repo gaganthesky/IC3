@@ -70,6 +70,9 @@ public class EventListActivity extends Activity {
     LinearLayout linearLayout;
     boolean eventsFound;
 
+    // For resume
+    private boolean resumeHasRun = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,6 +171,17 @@ public class EventListActivity extends Activity {
 
             }
         });
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        if (!resumeHasRun) {
+            resumeHasRun = true;
+            return;
+        }
+        new LoadAllEvents().execute();
     }
 
     @Override
@@ -351,6 +365,7 @@ public class EventListActivity extends Activity {
                                 new int[]{R.id.eid, R.id.name, R.id.attendees, R.id.date, R.id.time});
                         // updating listview
                         lv.setAdapter(adapter);
+                        eventsList = new ArrayList<HashMap<String, String>>();
                     }
                     else
                     {

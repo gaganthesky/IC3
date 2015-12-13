@@ -62,6 +62,9 @@ public class MainActivity extends DrawerActivity {
     JSONArray events = null;
     ListView lv;
 
+    // For resume
+    private boolean resumeHasRun = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,7 +140,13 @@ public class MainActivity extends DrawerActivity {
     public void onResume()
     {
         super.onResume();
+        if (!resumeHasRun) {
+            resumeHasRun = true;
+            return;
+        }
+        new LoadAllEvents().execute();
     }
+
     @Override
     public void onStart(){
         super.onStart();
@@ -204,18 +213,13 @@ public class MainActivity extends DrawerActivity {
          * getting All events from url
          * */
         protected String doInBackground(String... args) {
-            //String name = inputName.getText().toString();
 
             // Building Parameters
-            //List<NameValuePair> params = new ArrayList<NameValuePair>();
-            //params.add(new BasicNameValuePair("name", name));
-            // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
+
             // getting JSON string from URL
             JSONObject json = jParser.makeHttpRequest(url_all_events, "GET", params);
 
-            // Check your log cat for JSON reponse
-//            Log.d("All Events: ", json.toString());
 
             try {
                 // Checking for SUCCESS TAG
@@ -327,7 +331,8 @@ public class MainActivity extends DrawerActivity {
                             TAG_NAME, TAG_COUNT, TAG_DATE, TAG_TIME},
                             new int[] { R.id.eid, R.id.name, R.id.attendees, R.id.date, R.id.time});
                     // updating listview
-                        lv.setAdapter(adapter);
+                    lv.setAdapter(adapter);
+                    eventsList = new ArrayList<HashMap<String, String>>();
                 }
             });
 

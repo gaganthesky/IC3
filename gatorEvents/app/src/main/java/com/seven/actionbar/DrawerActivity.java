@@ -54,8 +54,8 @@ public class DrawerActivity extends FragmentActivity
                 mActivityTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-        this.getActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getActionBar().setHomeButtonEnabled(true);
+//        this.getActionBar().setDisplayHomeAsUpEnabled(true);
+//        this.getActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                    //    R.drawable.ic_drawer,

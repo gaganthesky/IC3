@@ -21,6 +21,17 @@
         <item name="android:actionBarStyle">@style/Widget.ActionBar.Logo</item>
     </style>
 
+    <style name="CalendarTheme" parent="Base.Theme.AppCompat.Light">
+        <item name="colorPrimaryDark">@color/ufl_orange_dark</item>
+        <item name="android:colorPrimary">@color/ufl_orange</item>
+        <item name="colorControlNormal">@color/ufl_purple</item>
+        <item name="colorAccent">@color/ufl_orange</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/drawer_list_selector</item>
+        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
+        <item name="android:actionBarStyle">@style/Widget.ActionBar.Logo</item>
+    </style>
+
     <style name="EventsTheme" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -87,6 +87,13 @@ public class CalendarActivity extends DrawerActivity {
         return true;
     }
 
+    public void getToday(View view)
+    {
+        Calendar newCalendar = Calendar.getInstance();
+        calendar.setCurrentDate(newCalendar);
+        calendar.setSelectedDate(newCalendar);
+    }
+
 
     @Override
     public void onBackPressed() {
